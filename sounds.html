@@ -1,0 +1,308 @@
+<html><head><title>Vote on sound effects you like</title>
+<script type="text/javascript">
+function update()
+{
+	var elements = document.getElementById('vote').elements;
+	var str = "";
+	for(var i = 0; i < elements.length; i++)
+	{
+		if(elements[i].checked)
+		{
+			str += elements[i].name + "\t" + elements[i].value + "\n";
+		}
+	}
+	document.getElementById('result').value = str;
+}
+</script>
+</head><body>
+<form id="vote" action="">
+(<input type="radio" name="afterburner~.wav" value="1">Like)
+	(<input type="radio" name="afterburner~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/afterburner~.wav" type="audio/wav">
+	</audio> afterburner~.wav<br/>
+(<input type="radio" name="anti-missile.wav" value="1">Like)
+	(<input type="radio" name="anti-missile.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/anti-missile.wav" type="audio/wav">
+	</audio> anti-missile.wav<br/>
+(<input type="radio" name="atomic huge~.wav" value="1">Like)
+	(<input type="radio" name="atomic huge~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/atomic huge~.wav" type="audio/wav">
+	</audio> atomic huge~.wav<br/>
+(<input type="radio" name="atomic large~.wav" value="1">Like)
+	(<input type="radio" name="atomic large~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/atomic large~.wav" type="audio/wav">
+	</audio> atomic large~.wav<br/>
+(<input type="radio" name="atomic medium~.wav" value="1">Like)
+	(<input type="radio" name="atomic medium~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/atomic medium~.wav" type="audio/wav">
+	</audio> atomic medium~.wav<br/>
+(<input type="radio" name="atomic small~.wav" value="1">Like)
+	(<input type="radio" name="atomic small~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/atomic small~.wav" type="audio/wav">
+	</audio> atomic small~.wav<br/>
+(<input type="radio" name="atomic tiny~.wav" value="1">Like)
+	(<input type="radio" name="atomic tiny~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/atomic tiny~.wav" type="audio/wav">
+	</audio> atomic tiny~.wav<br/>
+(<input type="radio" name="banisher~.wav" value="1">Like)
+	(<input type="radio" name="banisher~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/banisher~.wav" type="audio/wav">
+	</audio> banisher~.wav<br/>
+(<input type="radio" name="blaster.wav" value="1">Like)
+	(<input type="radio" name="blaster.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/blaster.wav" type="audio/wav">
+	</audio> blaster.wav<br/>
+(<input type="radio" name="electron beam~.wav" value="1">Like)
+	(<input type="radio" name="electron beam~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/electron beam~.wav" type="audio/wav">
+	</audio> electron beam~.wav<br/>
+(<input type="radio" name="explosion huge.wav" value="1">Like)
+	(<input type="radio" name="explosion huge.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/explosion huge.wav" type="audio/wav">
+	</audio> explosion huge.wav<br/>
+(<input type="radio" name="explosion large.wav" value="1">Like)
+	(<input type="radio" name="explosion large.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/explosion large.wav" type="audio/wav">
+	</audio> explosion large.wav<br/>
+(<input type="radio" name="explosion medium.wav" value="1">Like)
+	(<input type="radio" name="explosion medium.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/explosion medium.wav" type="audio/wav">
+	</audio> explosion medium.wav<br/>
+(<input type="radio" name="explosion nuke.wav" value="1">Like)
+	(<input type="radio" name="explosion nuke.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/explosion nuke.wav" type="audio/wav">
+	</audio> explosion nuke.wav<br/>
+(<input type="radio" name="explosion small.wav" value="1">Like)
+	(<input type="radio" name="explosion small.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/explosion small.wav" type="audio/wav">
+	</audio> explosion small.wav<br/>
+(<input type="radio" name="explosion tiny.wav" value="1">Like)
+	(<input type="radio" name="explosion tiny.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/explosion tiny.wav" type="audio/wav">
+	</audio> explosion tiny.wav<br/>
+(<input type="radio" name="fire-lance~.wav" value="1">Like)
+	(<input type="radio" name="fire-lance~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/fire-lance~.wav" type="audio/wav">
+	</audio> fire-lance~.wav<br/>
+(<input type="radio" name="flamethrower~.wav" value="1">Like)
+	(<input type="radio" name="flamethrower~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/flamethrower~.wav" type="audio/wav">
+	</audio> flamethrower~.wav<br/>
+(<input type="radio" name="grab-strike.wav" value="1">Like)
+	(<input type="radio" name="grab-strike.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/grab-strike.wav" type="audio/wav">
+	</audio> grab-strike.wav<br/>
+(<input type="radio" name="heavy anti-missile.wav" value="1">Like)
+	(<input type="radio" name="heavy anti-missile.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/heavy anti-missile.wav" type="audio/wav">
+	</audio> heavy anti-missile.wav<br/>
+(<input type="radio" name="heavy laser~.wav" value="1">Like)
+	(<input type="radio" name="heavy laser~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/heavy laser~.wav" type="audio/wav">
+	</audio> heavy laser~.wav<br/>
+(<input type="radio" name="hyperdrive.wav" value="1">Like)
+	(<input type="radio" name="hyperdrive.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/hyperdrive.wav" type="audio/wav">
+	</audio> hyperdrive.wav<br/>
+(<input type="radio" name="ion huge~.wav" value="1">Like)
+	(<input type="radio" name="ion huge~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ion huge~.wav" type="audio/wav">
+	</audio> ion huge~.wav<br/>
+(<input type="radio" name="ionic afterburner~.wav" value="1">Like)
+	(<input type="radio" name="ionic afterburner~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ionic afterburner~.wav" type="audio/wav">
+	</audio> ionic afterburner~.wav<br/>
+(<input type="radio" name="ion impact.wav" value="1">Like)
+	(<input type="radio" name="ion impact.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ion impact.wav" type="audio/wav">
+	</audio> ion impact.wav<br/>
+(<input type="radio" name="ion large~.wav" value="1">Like)
+	(<input type="radio" name="ion large~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ion large~.wav" type="audio/wav">
+	</audio> ion large~.wav<br/>
+(<input type="radio" name="ion medium~.wav" value="1">Like)
+	(<input type="radio" name="ion medium~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ion medium~.wav" type="audio/wav">
+	</audio> ion medium~.wav<br/>
+(<input type="radio" name="ion small~.wav" value="1">Like)
+	(<input type="radio" name="ion small~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ion small~.wav" type="audio/wav">
+	</audio> ion small~.wav<br/>
+(<input type="radio" name="ion tiny~.wav" value="1">Like)
+	(<input type="radio" name="ion tiny~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ion tiny~.wav" type="audio/wav">
+	</audio> ion tiny~.wav<br/>
+(<input type="radio" name="ion.wav" value="1">Like)
+	(<input type="radio" name="ion.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/ion.wav" type="audio/wav">
+	</audio> ion.wav<br/>
+(<input type="radio" name="javelin.wav" value="1">Like)
+	(<input type="radio" name="javelin.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/javelin.wav" type="audio/wav">
+	</audio> javelin.wav<br/>
+(<input type="radio" name="jump drive.wav" value="1">Like)
+	(<input type="radio" name="jump drive.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/jump drive.wav" type="audio/wav">
+	</audio> jump drive.wav<br/>
+(<input type="radio" name="landing.wav" value="1">Like)
+	(<input type="radio" name="landing.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/landing.wav" type="audio/wav">
+	</audio> landing.wav<br/>
+(<input type="radio" name="laser~.wav" value="1">Like)
+	(<input type="radio" name="laser~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/laser~.wav" type="audio/wav">
+	</audio> laser~.wav<br/>
+(<input type="radio" name="meteor.wav" value="1">Like)
+	(<input type="radio" name="meteor.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/meteor.wav" type="audio/wav">
+	</audio> meteor.wav<br/>
+(<input type="radio" name="mod blaster.wav" value="1">Like)
+	(<input type="radio" name="mod blaster.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/mod blaster.wav" type="audio/wav">
+	</audio> mod blaster.wav<br/>
+(<input type="radio" name="nuke.wav" value="1">Like)
+	(<input type="radio" name="nuke.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/nuke.wav" type="audio/wav">
+	</audio> nuke.wav<br/>
+(<input type="radio" name="particle.wav" value="1">Like)
+	(<input type="radio" name="particle.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/particle.wav" type="audio/wav">
+	</audio> particle.wav<br/>
+(<input type="radio" name="plasma huge~.wav" value="1">Like)
+	(<input type="radio" name="plasma huge~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/plasma huge~.wav" type="audio/wav">
+	</audio> plasma huge~.wav<br/>
+(<input type="radio" name="plasma large~.wav" value="1">Like)
+	(<input type="radio" name="plasma large~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/plasma large~.wav" type="audio/wav">
+	</audio> plasma large~.wav<br/>
+(<input type="radio" name="plasma medium~.wav" value="1">Like)
+	(<input type="radio" name="plasma medium~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/plasma medium~.wav" type="audio/wav">
+	</audio> plasma medium~.wav<br/>
+(<input type="radio" name="plasma small~.wav" value="1">Like)
+	(<input type="radio" name="plasma small~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/plasma small~.wav" type="audio/wav">
+	</audio> plasma small~.wav<br/>
+(<input type="radio" name="plasma tiny~.wav" value="1">Like)
+	(<input type="radio" name="plasma tiny~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/plasma tiny~.wav" type="audio/wav">
+	</audio> plasma tiny~.wav<br/>
+(<input type="radio" name="plasma.wav" value="1">Like)
+	(<input type="radio" name="plasma.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/plasma.wav" type="audio/wav">
+	</audio> plasma.wav<br/>
+(<input type="radio" name="proton.wav" value="1">Like)
+	(<input type="radio" name="proton.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/proton.wav" type="audio/wav">
+	</audio> proton.wav<br/>
+(<input type="radio" name="pug anti-missile.wav" value="1">Like)
+	(<input type="radio" name="pug anti-missile.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/pug anti-missile.wav" type="audio/wav">
+	</audio> pug anti-missile.wav<br/>
+(<input type="radio" name="pulse.wav" value="1">Like)
+	(<input type="radio" name="pulse.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/pulse.wav" type="audio/wav">
+	</audio> pulse.wav<br/>
+(<input type="radio" name="quarg anti-missile.wav" value="1">Like)
+	(<input type="radio" name="quarg anti-missile.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/quarg anti-missile.wav" type="audio/wav">
+	</audio> quarg anti-missile.wav<br/>
+(<input type="radio" name="rocket.wav" value="1">Like)
+	(<input type="radio" name="rocket.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/rocket.wav" type="audio/wav">
+	</audio> rocket.wav<br/>
+(<input type="radio" name="seeker.wav" value="1">Like)
+	(<input type="radio" name="seeker.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/seeker.wav" type="audio/wav">
+	</audio> seeker.wav<br/>
+(<input type="radio" name="sidewinder.wav" value="1">Like)
+	(<input type="radio" name="sidewinder.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/sidewinder.wav" type="audio/wav">
+	</audio> sidewinder.wav<br/>
+(<input type="radio" name="takeoff.wav" value="1">Like)
+	(<input type="radio" name="takeoff.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/takeoff.wav" type="audio/wav">
+	</audio> takeoff.wav<br/>
+(<input type="radio" name="torpedo.wav" value="1">Like)
+	(<input type="radio" name="torpedo.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/torpedo.wav" type="audio/wav">
+	</audio> torpedo.wav<br/>
+(<input type="radio" name="tracker.wav" value="1">Like)
+	(<input type="radio" name="tracker.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/tracker.wav" type="audio/wav">
+	</audio> tracker.wav<br/>
+(<input type="radio" name="typhoon.wav" value="1">Like)
+	(<input type="radio" name="typhoon.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/typhoon.wav" type="audio/wav">
+	</audio> typhoon.wav<br/>
+(<input type="radio" name="warder.wav" value="1">Like)
+	(<input type="radio" name="warder.wav" value="-1">Dislike)
+	<audio controls>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/warder.wav" type="audio/wav">
+	</audio> warder.wav<br/>
+(<input type="radio" name="zapper~.wav" value="1">Like)
+	(<input type="radio" name="zapper~.wav" value="-1">Dislike)
+	<audio controls loop>
+	<source src="https://github.com/endless-sky/endless-sky/raw/master/sounds/zapper~.wav" type="audio/wav">
+	</audio> zapper~.wav<br/>
+<p>Click "Update," then copy and paste your vote summary below:</p>
+<input type="button" value="Update" onclick="update()">
+</form>
+<textarea rows="40" cols="40" id="result" readonly>Click the "Update" button to copy your votes into this field.</textarea>
+</body></html>

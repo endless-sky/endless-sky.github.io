@@ -1,5 +1,5 @@
 <html>
-<head><title>Files Test</title>
+<head><title>Endless Sky Ship Builder</title>
 <script type='text/javascript'>
 
 // Globals.
@@ -232,13 +232,13 @@ body {
 	<p>Swizzle: <input type="number" id="swizzle" value="0" min="0" max="6" onchange="setSwizzle()" />
 	<span id="swizzleName">Republic (No swizzle)</span></p>
 
-	<p><input type="checkbox" id="showOutline" onchange="setShowOutline()" /> Show outline</p>
+	<p><input type="checkbox" id="showOutline" onchange="setShowOutline()" /> Show collision mask</p>
 
 	<p><input type="button" value="gun" onclick="addPoint(this.value)" />
 	<input type="button" value="turret" onclick="addPoint(this.value)" />
 	<input type="button" value="engine" onclick="addPoint(this.value)" /></p>
 
-	<p>Load an image, click inside it to select a point, then click one of the buttons above to add the selected point to the list of points.</p>
+	<p>Load an image (regular resolution or @2x), click on where each hardpoint should be, then click one of the buttons above to add the selected point to a list of points (which will be shown below). You can then copy that list into your ship definition.</p>
 
 	<pre id="points"></pre>
 

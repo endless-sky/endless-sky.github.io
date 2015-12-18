@@ -1,0 +1,246 @@
+<html>
+<head><title>Files Test</title>
+<script type='text/javascript'>
+
+// Globals.
+var reader;
+var image;
+// Keep track of whether the mouse button is down.
+var isDragging = false;
+// Coordinates of the most recent mouse click or drag in the canvas.
+var xCoordinate = NaN;
+var yCoordinate = NaN;
+// Normal images should be shown at twice their resolution, but an image with
+// "@2x" at the end of its file name will be drawn at 1x resolution.
+var scale = 2;
+// The color swizzle to use:
+var swizzle = 0;
+// Whether or not the outline should be shown:
+var showOutline = false;
+
+
+// Add the various event listeners.
+function initialize() {
+	var canvas = document.getElementById("canvas");
+	canvas.addEventListener("mousedown", onMouseDown);
+	canvas.addEventListener("mousemove", onMouseMove);
+	document.body.addEventListener("mouseup", onMouseUp);
+}
+
+
+// Handle a mouse click within the canvas.
+function onMouseDown(event) {
+	isDragging = true;
+	
+	drawCoordinates(event.offsetX, event.offsetY);
+}
+
+// Handle mouse motion within the canvas. The button may or may not be down.
+function onMouseMove(event) {
+	if(!isDragging)
+		return;
+	
+	drawCoordinates(event.offsetX, event.offsetY);
+}
+
+// Keep track of when the mouse button is released.
+function onMouseUp(event) {
+	isDragging = false;
+}
+
+// Draw a circle at the given coordinates, and update the stored coordinates.
+function drawCoordinates(x, y) {
+	// The center of the image is (0, 0). Each pixel counts as half of a source
+	// pixel, since this is either a scaled-up image or an @2x file.
+	xCoordinate = .5 * (x - .5 * canvas.width);
+	yCoordinate = .5 * (y - .5 * canvas.height);
+	drawImage();
+}
+
+
+// Draw the image, on a black background.
+function drawImage() {
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	if(image)
+		context.drawImage(image, 0, 0, canvas.width, canvas.height);
+	
+	// Swizzle the image.
+	var SWIZZLE = [
+		[0, 1, 2],
+		[0, 2, 1],
+		[1, 0, 2],
+		[1, 2, 0],
+		[2, 0, 1],
+		[2, 1, 0],
+		[1, 2, 2]
+	];
+	var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+	var pixels = imageData.data;
+	for(var i = 0; i < pixels.length; i += 4) {
+		var red = pixels[i + SWIZZLE[swizzle][0]];
+		var green = pixels[i + SWIZZLE[swizzle][1]];
+		var blue = pixels[i + SWIZZLE[swizzle][2]];
+		pixels[i + 0] = red;
+		pixels[i + 1] = green;
+		pixels[i + 2] = blue;
+	}
+	
+	if(showOutline) {
+		var i = 0;
+		for(var i = 0; i < pixels.length && !pixels[i + 3]; i += 4) {}
+		var start = i;
+		
+		var DIR = [
+			pixels.length - 4 * canvas.width,
+			pixels.length - 4 * canvas.width + 4,
+			4,
+			4 * canvas.width + 4,
+			4 * canvas.width,
+			4 * canvas.width - 4,
+			pixels.length - 4,
+			pixels.length - 4 * canvas.width - 4
+		];
+		var d = 0;
+		do {
+			// Draw this outline pixel.
+			pixels[i + 0] = 255;
+			pixels[i + 1] = 0;
+			pixels[i + 2] = 0;
+			pixels[i + 3] = 255;
+			// Find the next occupied pixel.
+			while(!pixels[(i + 3 + DIR[d]) % pixels.length])
+				d = (d + 1) % 8;
+			// Continue tracing the outline at that pixel.
+			i = (i + DIR[d]) % pixels.length;
+			d = (d + 6) % 8;
+		} while(i != start);
+	}
+	context.putImageData(imageData, 0, 0);
+	
+	if(isNaN(xCoordinate) || isNaN(yCoordinate))
+		return;
+	var x = xCoordinate * 2 + .5 * canvas.width;
+	var y = yCoordinate * 2 + .5 * canvas.height;
+	
+	context.beginPath();
+	context.arc(x, y, 5, 0, 2 * Math.PI, false);
+	context.lineWidth = 1;
+	context.strokeStyle = "#FF0000";
+	context.stroke();
+}
+
+
+// Add a named point to the list of points.
+function addPoint(name)
+{
+	if(isNaN(xCoordinate) || isNaN(yCoordinate))
+		return;
+	
+	var points = document.getElementById("points");
+	points.innerHTML += "\t" + name + " " + xCoordinate + " " + yCoordinate + "\n";
+}
+
+
+// Load an image file.
+function loadImage() {
+	// Make sure the file reading API is available.
+	if(typeof window.FileReader !== 'function')
+		return;
+	
+	// Check that a file has been specified.
+	var input = document.getElementById("file");
+	if(!input || !input.files || !input.files[0])
+		return;
+	
+	// Begin loading the file.
+	reader = new FileReader();
+	reader.onload = createImage;
+	var file = input.files[0];
+	reader.readAsDataURL(file);
+	
+	// The scale depends on whether this is an @2x image.
+	if(file.name.lastIndexOf("@2x") == file.name.lastIndexOf(".") - 3)
+		scale = 1;
+	else
+		scale = 2;
+}
+
+// An image file has been loaded. Convert it to an image.
+function createImage() {
+	image = new Image();
+	image.onload = imageLoaded;
+	image.src = reader.result;
+}
+
+// An image has been created. Draw it.
+function imageLoaded() {
+	var canvas = document.getElementById("canvas");
+	canvas.width = scale * image.width;
+	canvas.height = scale * image.height;
+	
+	xCoordinate = NaN;
+	yCoordinate = NaN;
+	drawImage();
+	
+	document.getElementById("points").innerHTML = "";
+}
+
+
+function setSwizzle() {
+	swizzle = Number(document.getElementById("swizzle").value);
+	
+	var NAME = [
+		"Republic (No swizzle)",
+		"Unused (G &harr; B)",
+		"Militia (R &harr; G)",
+		"Syndicate (R &rarr; B &rarr; G &rarr; R)",
+		"Unused (R &rarr; G &rarr; B &rarr; R)",
+		"Merchant (R &harr; B)",
+		"Pirate (G &rarr; R, B &rarr; G)"
+	];
+	document.getElementById("swizzleName").innerHTML = NAME[swizzle];
+	
+	drawImage();
+}
+
+function setShowOutline() {
+	showOutline = document.getElementById("showOutline").checked;
+	
+	drawImage();
+}
+
+</script>
+<style type="text/css">
+body {
+	color: #CCCCCC;
+	background-color: #000000;
+}
+</style>
+</head>
+<body onload="initialize()">
+<table border="0">
+<tr><td valign="top">
+
+	<canvas id="canvas"></canvas>
+
+</td><td valign="top">
+
+	<p><input type="file" id="file" name="file" onchange="loadImage()" /></p>
+
+	<p>Swizzle: <input type="number" id="swizzle" value="0" min="0" max="6" onchange="setSwizzle()" />
+	<span id="swizzleName">Republic (No swizzle)</span></p>
+
+	<p><input type="checkbox" id="showOutline" onchange="setShowOutline()" /> Show outline</p>
+
+	<p><input type="button" value="gun" onclick="addPoint(this.value)" />
+	<input type="button" value="turret" onclick="addPoint(this.value)" />
+	<input type="button" value="engine" onclick="addPoint(this.value)" /></p>
+
+	<p>Load an image, click inside it to select a point, then click one of the buttons above to add the selected point to the list of points.</p>
+
+	<pre id="points"></pre>
+
+</td></tr></table>
+</body></html>

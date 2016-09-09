@@ -1,0 +1,13 @@
+---
+layout: default
+title: Endless Sky Blog
+---
+<h2 class="header">Endless Sky Blog</h2>
+{% for post in site.posts %}
+<div class="post">
+	<p class="post-date">{{ post.date | date_to_string }}</p>
+	<a href="{{ post.url }}"><p class="post-title">{{ post.title }}</p></a>
+	<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }} ...</p>
+	<a href="{{ post.url }}"><p class="post-more">more...</p></a>
+</div>
+{% endfor %}

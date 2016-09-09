@@ -1,0 +1,5 @@
+name: Endless Sky
+url: https://endless-sky.github.io
+markdown: kramdown
+collections:
+  - screenshots

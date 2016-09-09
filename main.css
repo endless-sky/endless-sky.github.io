@@ -1,0 +1,260 @@
+/* Global style. */
+body {
+	background: #f8f8f8;
+	color: #333333;
+	font-family: Ubuntu, Arial, sans-serif;
+}
+a:link, a:visited {
+	text-decoration: none;
+	color: #CC6600;
+}
+a:hover, a:active {
+	text-decoration: underline;
+	color: #FF9933;
+}
+.nav-text a:link, .nav-text a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+.nav-text a:hover, .nav-text a:active {
+	text-decoration: underline;
+	color: #000000;
+}
+
+/* Main column. */
+.main {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 150px;
+	margin-bottom: 50px;
+	width: 60%;
+	min-width: 600px;
+	max-width: 900px;
+}
+p {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	text-indent: 2em;
+	line-height: 160%;
+}
+.header {
+	text-align: center;
+}
+.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+ul {
+	padding-left: 5em;
+	padding-right: 5em;
+}
+li p {
+	text-indent: 0;
+}
+
+/* Side elements. */
+.title {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 210px;
+	height: 180px;
+}
+.nav-image {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+	height: 400px;
+}
+.nav-text {
+	position: fixed;
+	top: 25px;
+	left: 0px;
+	padding-left: 15px;
+	text-align: left;
+	font-size: 18px;
+	line-height: 30px;
+}
+.doodad {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	width: 100px;
+	height: 380px;
+}
+
+/* Introduction. */
+.intro-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+	height: 400px;
+	background: #333;
+}
+
+/* Blog posts. */
+.post {
+	position: relative;
+	padding-bottom: 40px;
+}
+.post-more {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-bottom: 20px;
+	font-style: italic;
+}
+.post-date {
+	position: absolute;
+	margin-top: 0;
+	top: 0;
+	right: 0;
+	font-style: italic;
+}
+.post-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	text-indent: 0;
+	font-weight: bold;
+	font-size: 120%;
+}
+.post-author {
+	margin-top: 0;
+	text-indent: 0;
+	font-style: italic;
+	font-size: 80%;
+}
+.post-navigation {
+	margin-top: 4em;
+}
+.post-previous {
+	position: absolute;
+	left: 0;
+}
+.post-next {
+	position: absolute;
+	right: 0;
+}
+
+/* Screenshot gallery. */
+.gallery {
+	text-align: center;
+}
+.gallery-thumb {
+	cursor: pointer;
+	width: 256px;
+	height: 144px;
+	margin: 10px;
+	background: #333;
+}
+
+/* Lightbox that pops up in the screenshot gallery. */
+#lightbox-back {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, .7);
+	text-align: center;
+}
+#lightbox {
+	display: inline-block;
+	position: relative;
+	padding: 20px;
+}
+#lightbox-image {
+	max-width: 100%;
+}
+#lightbox-previous, #lightbox-next {
+	position: absolute;
+	width: 30%;
+	height: 100%;
+	top: 0;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity .5s;
+	-moz-transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+}
+#lightbox-previous:hover, #lightbox-next:hover {
+	opacity: 1;
+}
+#lightbox-previous {
+	left: 0;
+}
+#lightbox-next {
+	right: 0;
+}
+#lightbox-previous-arrow, #lightbox-next-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 70px;
+	-webkit-filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+	filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+}
+#lightbox-previous-arrow {
+	left: 40px;
+}
+#lightbox-next-arrow {
+	right: 40px;
+}
+#lightbox-caption-back {
+	display: inline-block;
+	position: relative;
+	width: 60%;
+	min-width: 600px;
+	max-width: 900px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1.2px solid #333;
+	background: #eee;
+}
+#lightbox-title {
+	font-weight: bold;
+}
+#lightbox-caption {
+	font-style: italic;
+}
+
+/* Drop shadow style, applied to many different elements. */
+.shadowed, .intro-image, .gallery-thumb, #lightbox-image, #lightbox-caption-back {
+	-webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .2));
+	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .2));
+}
+
+/* For small screens: */
+@media (max-width: 920px) {
+	.main {
+		margin-top: 400px;
+	}
+	.nav-image, .nav-text {
+		position: absolute;
+	}
+	.doodad {
+		display: none;
+	}
+}
+@media (max-width: 600px) {
+	.main {
+		width: 100%;
+		min-width: auto;
+		max-width: auto;
+	}
+	.intro-image {
+		width: 100%;
+		height: auto;
+	}
+	#lightbox-caption-back {
+		width: 90%;
+		min-width: auto;
+		max-width: auto;
+	}
+}

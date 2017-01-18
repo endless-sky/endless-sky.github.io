@@ -11,4 +11,6 @@ The biggest change to the game mechanics in this release is the addition of a de
 
 The way depreciation is implemented is that every ship and outfit loses value each day until it is 360 days old, at which point it is worth 25% of its original value. If you sell it, it stays "in stock" and can be bought back at the depreciated price until you leave the planet. Captured ships and plundered outfits always start out fully depreciated. Depreciation does not in any way affect the performance of a ship or outfit; a brand new ship is no more powerful or fast than a fully depreciated one.
 
+<img class="centered shadowed" src="/images/depreciation.png" width="500" height="400" />
+
 As in real life, the most depreciation occurs on the first few days after you buy an item. That means that if you had the choice, it is always optimal to sell the least depreciated copy you have of an outfit, and buy back the most depreciated one available. But actually going through all your ships to find out which one had the newest copy of an outfit would be tedious and pointless, so the game handles that for you automatically. That is, when you sell a laser turret, you will always sell the newest laser turret you own, even if it is technically installed in a different ship.

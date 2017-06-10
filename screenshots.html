@@ -24,3 +24,11 @@ title: Endless Sky screenshots.
 		</div>
 	</div>
 </div>
+
+<h2 class="header">Artwork / Wallpapers</h2>
+<div class="gallery">
+{% for image in site.artwork %}
+	<a href="{{ image.full }}"><img class="gallery-thumb" src="{{ image.thumb }}" title="{{ image.alt }}" alt="{{ image.alt }}" /></a>
+{% endfor %}
+</div>
+

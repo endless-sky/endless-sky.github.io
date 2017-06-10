@@ -3,3 +3,4 @@ url: https://endless-sky.github.io
 markdown: kramdown
 collections:
   - screenshots
+  - artwork

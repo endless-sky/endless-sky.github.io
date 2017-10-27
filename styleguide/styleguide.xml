@@ -460,7 +460,7 @@ void F(); // has an undefined number of arguments.
 <STYLEPOINT title="Avoid reusing variables">
 <SUMMARY>Rather than using one vaguely named temporary variable in many places in a function, just define new variables for each new value you are storing.</SUMMARY>
 <BODY>
-<p>The compiler will be able to figure out when each variable is no longer in use and can reuse whatever register it is in; you don not have to manage that.</p>
+<p>The compiler will be able to figure out when each variable is no longer in use and can reuse whatever register it is in; you do not have to manage that.</p>
 </BODY>
 </STYLEPOINT>
 
@@ -504,7 +504,7 @@ void MyClass::DoSomethingSafely(const Data &amp;newData)
 <p>Exceedingly verbose comments can be as harmful as no comments at all; this section provides some guidelines for finding a happy medium.</p>
 
 <STYLEPOINT title="Headers are for quick reference">
-<SUMMARY>As a general principle, the header file for a class should be usable as a quick reference to that classes interface.</SUMMARY>
+<SUMMARY>As a general principle, the header file for a class should be usable as a quick reference to that class's interface.</SUMMARY>
 <BODY>
 <p>That is, someone who needs to use a class but does not need to know implementation details should be able to get all the information that they need from the header. This also implies that you should not put implementation details or other excess comments into the header, since it should be as concise as possible. In particular, it is not required to have individual comments for every function and variable in the header.</p>
 </BODY>

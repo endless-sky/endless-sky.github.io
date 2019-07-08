@@ -624,6 +624,20 @@ x = temp;
 </BODY>
 </STYLEPOINT>
 
+<STYLEPOINT title="Indentation in blank lines">
+<SUMMARY>Blank lines should be indented to the same level as the code directly above and below it.</SUMMARY>
+<BODY>
+<p>This should help developers with editors that take indentation for new code from the line above.</p>
+</BODY>
+</STYLEPOINT>
+
+<STYLEPOINT title="No trailing whitespace">
+<SUMMARY>Lines with code or comments should not have trailing whitespace.</SUMMARY>
+<BODY>
+<p>Trailing whitespace looks very unprofessional and should be avoided (except where required on blank lines within a code-block).</p>
+</BODY>
+</STYLEPOINT>
+
 <STYLEPOINT title="One expression per line">
 <SUMMARY>Do not put multiple expression on the same line.</SUMMARY>
 <BODY>

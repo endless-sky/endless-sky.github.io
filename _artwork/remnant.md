@@ -1,5 +1,5 @@
 ---
 full: /images/artwork/remnant.jpg
 thumb: /images/artwork/remnant_thumb.jpg
-alt: Remnant ships
+alt: Remnant
 ---

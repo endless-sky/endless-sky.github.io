@@ -3,20 +3,116 @@ layout: default
 title: Endless Sky Plugin List
 ---
 
-<table id="plugin-table">
-	<tr class="plugin-table-row">
-		<th>Name</th>
-		<th>Author</th>
-		<th>Description</th>
-	</tr>
-		{% for plugin in site.data.plugins %}
-			<tr class="plugin-table-row">
-				<td>{{ plugin.name }}</td>
-				<td>{{ plugin.author }}</td>
-				<td>{{ plugin.description }}</td>
-			</tr>
-		{% endfor %}
-</table>
+<var id=pluginlist></var>
+
+<script type="text/javascript">
+	function stripQuotes(string) {
+        return string.replace(new RegExp("\"", "g"), "")
+	}
+	function createPluginsTableLine(name, url, version, icon, description)
+    {
+        if (name == "")
+            return "";
+
+        let tableLine = "<tr><td>";
+        if(icon != ""){
+            tableLine += "<img src=\"" + icon + "\" />";
+        }
+        else{
+            tableLine += "&nbsp;";
+        }
+        tableLine += "</td><td>";
+        if(url != ""){
+            tableLine += "<a href=\"" + url + "\">";
+        }
+        tableLine += name;
+        if(url != ""){
+            tableLine += "</a>";
+        }
+        tableLine += "</td><td>";
+        if(description != ""){
+            tableLine += description;
+        }
+        else{
+            tableLine += "&nbsp;";
+        }
+        tableLine += "</td></tr>";
+        return tableLine;
+    }
+
+    function createPluginsTable(responseText)
+    {
+        let pluginsTable = "<table><tbody>";
+
+        lines = responseText.split("\n");
+
+        pluginName = "";
+        pluginUrl = "";
+        pluginVersion = "";
+        pluginIcon = "";
+        pluginDescription = "";
+
+        for(i=0; i < lines.length; i++){
+            if(lines[i].startsWith("plugin ")){
+                // Write out any previous lines if we have any
+                pluginsTable += createPluginsTableLine(pluginName, pluginUrl, pluginVersion, pluginIcon, pluginDescription);
+
+                pluginName = stripQuotes(lines[i].substring(7));
+                pluginUrl = "";
+                pluginVersion = "";
+                pluginIcon = "";
+                pluginDescription = "";
+            }
+            else if(!lines[i].startsWith("\t")){
+                // Write out any previous lines if we have any
+                pluginsTable += createPluginsTableLine(pluginName, pluginUrl, pluginVersion, pluginIcon, pluginDescription);
+
+                pluginName = "";
+                pluginUrl = "";
+                pluginVersion = "";
+                pluginIcon = "";
+                pluginDescription = "";
+            }
+            else if(pluginName != ""){
+                let subLine = lines[i].substring(1);
+                if (subLine.startsWith("url ")){
+                    pluginUrl = stripQuotes(lines[i].substring(4));
+                }
+                else if (subLine.startsWith("version ")){
+                    pluginVersion = stripQuotes(lines[i].substring(8));
+                }
+                else if (subLine.startsWith("iconUrl ")){
+                    pluginIcon = stripQuotes(lines[i].substring(8));
+                }
+                else if (subLine.startsWith("description ")){
+                    pluginDescription = stripQuotes(lines[i].substring(12));
+                }
+            }
+        }
+        // Write out any last line if we have any
+        pluginsTable += createPluginsTableLine(pluginName, pluginUrl, pluginVersion, pluginIcon, pluginDescription);
+
+        pluginsTable += "</tbody></table>";
+        return pluginsTable;
+    }
+
+
+    function writePluginsTable()
+    {
+        const responseText = httpReq.responseText;
+        const newTable = createPluginsTable(responseText);
+        document.getElementById("pluginlist").innerHTML = newTable;
+    }
+
+	// TODO (@MCOfficer): Change this before merge
+    const pluginsList = "https://raw.githubusercontent.com/MCOfficer/endless-sky/plugin_manager/plugins.txt";
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.addEventListener('load', writePluginsTable);
+    httpReq.open("get", pluginsList, true);
+    httpReq.overrideMimeType("text/plain");
+    httpReq.send();
+</script>
 
 <p>A proof-of-concept plugin sharing site is available at <a href="https://opengamemods-group.github.io/ES-Mod-Share/">opengamemods-group.github.io/ES-Mod-Share/</a>.</p>
 <p>Instructions for <a href="https://github.com/endless-sky/endless-sky/wiki/CreatingPlugins">creating plugins</a> are on the wiki.</p>

@@ -225,21 +225,16 @@ li p {
 }
 
 /* Plugin list */
-#plugin-table {
-
-}
-
-#plugin-table td, #plugin-table th {
+#pluginlist td, #pluginlist th {
 	outline: 1px solid #ddd;
 	font-weight: normal;
-	padding: 4px;
+	padding: 10px;
 	text-align: center;
 }
 
-#plugin-table th {
-	font-weight: bold;
-	padding-left: 50px;
-	padding-right: 50px;
+#pluginlist  img {
+	max-height: 100px;
+	padding: 10px;
 }
 
 /* Drop shadow style, applied to many different elements. */

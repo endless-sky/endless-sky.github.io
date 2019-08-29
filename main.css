@@ -224,6 +224,24 @@ li p {
 	font-style: italic;
 }
 
+/* Plugin list */
+#plugin-table {
+
+}
+
+#plugin-table td, #plugin-table th {
+	outline: 1px solid #ddd;
+	font-weight: normal;
+	padding: 4px;
+	text-align: center;
+}
+
+#plugin-table th {
+	font-weight: bold;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
 /* Drop shadow style, applied to many different elements. */
 .shadowed, .intro-image, .gallery-thumb, #lightbox-image, #lightbox-caption-back {
 	-webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .2));

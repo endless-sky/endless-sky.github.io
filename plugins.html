@@ -2,6 +2,22 @@
 layout: default
 title: Endless Sky Plugin List
 ---
+
+<table id="plugin-table">
+	<tr class="plugin-table-row">
+		<th>Name</th>
+		<th>Author</th>
+		<th>Description</th>
+	</tr>
+		{% for plugin in site.data.plugins %}
+			<tr class="plugin-table-row">
+				<td>{{ plugin.name }}</td>
+				<td>{{ plugin.author }}</td>
+				<td>{{ plugin.description }}</td>
+			</tr>
+		{% endfor %}
+</table>
+
 <p>A proof-of-concept plugin sharing site is available at <a href="https://opengamemods-group.github.io/ES-Mod-Share/">opengamemods-group.github.io/ES-Mod-Share/</a>.</p>
 <p>Instructions for <a href="https://github.com/endless-sky/endless-sky/wiki/CreatingPlugins">creating plugins</a> are on the wiki.</p>
 <p>Eventually, it will be possible to download and install plugins from within the game. To support both that and a more detailed plugin listing here on the website, each plugin will need to provide, at minimum:</p>

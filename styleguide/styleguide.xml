@@ -632,13 +632,6 @@ x = temp;
 </BODY>
 </STYLEPOINT>
 
-<STYLEPOINT title="No trailing whitespace">
-<SUMMARY>Lines with code or comments should not have trailing whitespace.</SUMMARY>
-<BODY>
-<p>Trailing whitespace looks very unprofessional and should be avoided (except where required on blank lines within a code-block).</p>
-</BODY>
-</STYLEPOINT>
-
 <STYLEPOINT title="One expression per line">
 <SUMMARY>Do not put multiple expression on the same line.</SUMMARY>
 <BODY>

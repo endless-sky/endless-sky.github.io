@@ -4,3 +4,5 @@ markdown: kramdown
 collections:
   - screenshots
   - artwork
+
+theme: jekyll-theme-cayman

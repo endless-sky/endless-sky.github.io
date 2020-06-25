@@ -228,6 +228,7 @@ li p {
 #pluginlist td, #pluginlist th {
 	outline: 1px solid #ddd;
 	font-weight: normal;
+	font-style: normal;
 	padding: 10px;
 	text-align: center;
 }

@@ -6,12 +6,12 @@ title: Endless Sky Plugin List
 <p>Instructions for <a href="https://github.com/endless-sky/endless-sky/wiki/CreatingPlugins">creating plugins</a> are on the wiki.</p>
 <p>Eventually, it will be possible to download and install plugins from within the game. To support both that and a more detailed plugin listing here on the website, each plugin will need to provide, at minimum:</p>
 <ul>
-    <li><p>A title, author name, and short description.</p></li>
-    <li><p>A longer description to be shown if the user clicks on a particular plugin in the gallery to view more information.</p></li>
-    <li><p>A list of tags to be used when filtering the plugin list.</p></li>
-    <li><p>A "cover image" representing the mod. These will all be required to be a certain size, but I haven't decided yet what the size should be.</p></li>
-    <li><p>One or more screenshots of the plugin in action. All screenshots should have a 16:9 aspect ratio, e.g. 1280&times;720 or 1920&times;1080. (You can edit your preferences file to set the window size to an exact value.)</p></li>
-    <li><p>A download link to a zip file. Ideally, the download link changes every time a new version of the mod is released, both so that older versions remain accessible and so that the game client will be able to tell from the path when a new version is available.</p></li>
+	<li><p>A title, author name, and short description.</p></li>
+	<li><p>A longer description to be shown if the user clicks on a particular plugin in the gallery to view more information.</p></li>
+	<li><p>A list of tags to be used when filtering the plugin list.</p></li>
+	<li><p>A "cover image" representing the mod. These will all be required to be a certain size, but I haven't decided yet what the size should be.</p></li>
+	<li><p>One or more screenshots of the plugin in action. All screenshots should have a 16:9 aspect ratio, e.g. 1280&times;720 or 1920&times;1080. (You can edit your preferences file to set the window size to an exact value.)</p></li>
+	<li><p>A download link to a zip file. Ideally, the download link changes every time a new version of the mod is released, both so that older versions remain accessible and so that the game client will be able to tell from the path when a new version is available.</p></li>
 </ul>
 <p>The preferred way to host a plugin is to create a GitHub repository for it. The "gh-pages" branch of the repository should contain the cover image and screenshots, and may also host a web page providing more information about the plugin. The "master" branch should contain the plugin itself. New downloads can be created just by tagging a release in the master branch.</p>
 <br>
@@ -19,46 +19,46 @@ title: Endless Sky Plugin List
 <var id=pluginlist></var>
 
 <script type="text/javascript">
-    function createPluginsTableLine(plugin)
-    {
-        let tableLine = "<tr><td>";
-        if(plugin.iconUrl){
-            tableLine += "<img src=\"" + plugin.iconUrl + "\" />";
-        }
-        else{
-            tableLine += "&nbsp;";
-        }
-        tableLine += "</td><td>";
-        tableLine += "<a href=\"" + plugin.url + "\">" + plugin.name + "</a>";
-        tableLine += "</td><td>";
-        tableLine += plugin.description;
-        tableLine += "</td></tr>";
-        return tableLine;
-    }
+	function createPluginsTableLine(plugin)
+	{
+		let tableLine = "<tr><td>";
+		if(plugin.iconUrl){
+			tableLine += "<img src=\"" + plugin.iconUrl + "\" />";
+		}
+		else{
+			tableLine += "&nbsp;";
+		}
+		tableLine += "</td><td>";
+		tableLine += "<a href=\"" + plugin.url + "\">" + plugin.name + "</a>";
+		tableLine += "</td><td>";
+		tableLine += plugin.description;
+		tableLine += "</td></tr>";
+		return tableLine;
+	}
 
-    function createPluginsTable(plugins)
-    {
-        let pluginsTable = "<table><tbody>";
-        for (const plugin of plugins) {
-                pluginsTable += createPluginsTableLine(plugin);
-        }
-        pluginsTable += "</tbody></table>";
-        return pluginsTable;
-    }
+	function createPluginsTable(plugins)
+	{
+		let pluginsTable = "<table><tbody>";
+		for (const plugin of plugins) {
+				pluginsTable += createPluginsTableLine(plugin);
+		}
+		pluginsTable += "</tbody></table>";
+		return pluginsTable;
+	}
 
 
-    function writePluginsTable()
-    {
-        const plugins = JSON.parse(httpReq.responseText);
-        const newTable = createPluginsTable(plugins);
-        document.getElementById("pluginlist").innerHTML = newTable;
-    }
+	function writePluginsTable()
+	{
+		const plugins = JSON.parse(httpReq.responseText);
+		const newTable = createPluginsTable(plugins);
+		document.getElementById("pluginlist").innerHTML = newTable;
+	}
 
-    const pluginsList = "https://raw.githubusercontent.com/EndlessSkyCommunity/endless-sky-plugins/master/generated/plugins.json";
+	const pluginsList = "https://raw.githubusercontent.com/EndlessSkyCommunity/endless-sky-plugins/master/generated/plugins.json";
 
-    let httpReq = new XMLHttpRequest();
-    httpReq.addEventListener('load', writePluginsTable);
-    httpReq.open("get", pluginsList, true);
-    httpReq.overrideMimeType("text/plain");
-    httpReq.send();
+	let httpReq = new XMLHttpRequest();
+	httpReq.addEventListener('load', writePluginsTable);
+	httpReq.open("get", pluginsList, true);
+	httpReq.overrideMimeType("text/plain");
+	httpReq.send();
 </script>

@@ -19,39 +19,50 @@ title: Endless Sky Plugin List
 <var id=pluginlist></var>
 
 <script type="text/javascript">
-	function createPluginsTableLine(plugin)
+	function createPluginsTableRow(plugin)
 	{
-		let tableLine = "<tr><td>";
+
+		let row = document.createElement("tr");
+		
+		let iconCell = document.createElement("td");
 		if(plugin.iconUrl){
-			tableLine += "<img src=\"" + plugin.iconUrl + "\" />";
+			let img = document.createElement("img");
+			img.src = plugin.iconUrl;
+			iconCell.appendChild(img);
 		}
-		else{
-			tableLine += "&nbsp;";
-		}
-		tableLine += "</td><td>";
-		tableLine += "<a href=\"" + plugin.url + "\">" + plugin.name + "</a>";
-		tableLine += "</td><td>";
-		tableLine += plugin.description;
-		tableLine += "</td></tr>";
-		return tableLine;
+		row.appendChild(iconCell);
+
+		let nameCell = document.createElement("td");
+		let name = document.createElement("a");
+		name.href = plugin.url;
+		name.innerText = plugin.name;
+		nameCell.appendChild(name);
+		row.appendChild(nameCell);
+
+		let descCell = document.createElement("td");
+		descCell.innerText = plugin.description.replaceAll("\n", "");
+		row.appendChild(descCell);
+		
+		return row;
 	}
 
 	function createPluginsTable(plugins)
 	{
-		let pluginsTable = "<table><tbody>";
+		let table = document.createElement("table");
+		let tbody = document.createElement("tbody");
 		for (const plugin of plugins) {
-				pluginsTable += createPluginsTableLine(plugin);
+				tbody.appendChild(createPluginsTableRow(plugin));
 		}
-		pluginsTable += "</tbody></table>";
-		return pluginsTable;
+		table.appendChild(tbody);
+		return table;
 	}
 
 
 	function writePluginsTable()
 	{
-		const plugins = JSON.parse(httpReq.responseText);
-		const newTable = createPluginsTable(plugins);
-		document.getElementById("pluginlist").innerHTML = newTable;
+		let plugins = JSON.parse(httpReq.responseText);
+		let table = createPluginsTable(plugins);
+		document.getElementById("pluginlist").appendChild(table);
 	}
 
 	const pluginsList = "https://raw.githubusercontent.com/EndlessSkyCommunity/endless-sky-plugins/master/generated/plugins.json";

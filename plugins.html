@@ -2,7 +2,7 @@
 layout: default
 title: Endless Sky Plugin List
 ---
-<p>A proof-of-concept plugin sharing site is available at <a href="https://opengamemods-group.github.io/ES-Mod-Share/">opengamemods-group.github.io/ES-Mod-Share/</a>.</p>
+
 <p>Instructions for <a href="https://github.com/endless-sky/endless-sky/wiki/CreatingPlugins">creating plugins</a> are on the wiki.</p>
 <p>Eventually, it will be possible to download and install plugins from within the game. To support both that and a more detailed plugin listing here on the website, each plugin will need to provide, at minimum:</p>
 <ul>
@@ -14,3 +14,62 @@ title: Endless Sky Plugin List
 	<li><p>A download link to a zip file. Ideally, the download link changes every time a new version of the mod is released, both so that older versions remain accessible and so that the game client will be able to tell from the path when a new version is available.</p></li>
 </ul>
 <p>The preferred way to host a plugin is to create a GitHub repository for it. The "gh-pages" branch of the repository should contain the cover image and screenshots, and may also host a web page providing more information about the plugin. The "master" branch should contain the plugin itself. New downloads can be created just by tagging a release in the master branch.</p>
+<br>
+
+<var id=pluginlist></var>
+
+<script type="text/javascript">
+	function createPluginsTableRow(plugin)
+	{
+
+		let row = document.createElement("tr");
+		
+		let iconCell = document.createElement("td");
+		if(plugin.iconUrl){
+			let img = document.createElement("img");
+			img.src = plugin.iconUrl;
+			iconCell.appendChild(img);
+		}
+		row.appendChild(iconCell);
+
+		let nameCell = document.createElement("td");
+		let name = document.createElement("a");
+		name.href = plugin.homepage;
+		name.innerText = plugin.name;
+		nameCell.appendChild(name);
+		row.appendChild(nameCell);
+
+		let descCell = document.createElement("td");
+		descCell.innerText = plugin.shortDescription.replaceAll("\n", "");
+		row.appendChild(descCell);
+		
+		return row;
+	}
+
+	function createPluginsTable(plugins)
+	{
+		let table = document.createElement("table");
+		let tbody = document.createElement("tbody");
+		for (const plugin of plugins) {
+				tbody.appendChild(createPluginsTableRow(plugin));
+		}
+		table.appendChild(tbody);
+		return table;
+	}
+
+
+	function writePluginsTable()
+	{
+		let plugins = JSON.parse(httpReq.responseText);
+		let table = createPluginsTable(plugins);
+		document.getElementById("pluginlist").appendChild(table);
+	}
+
+	const pluginsList = "https://raw.githubusercontent.com/EndlessSkyCommunity/endless-sky-plugins/master/generated/plugins.json";
+
+	let httpReq = new XMLHttpRequest();
+	httpReq.addEventListener('load', writePluginsTable);
+	httpReq.open("get", pluginsList, true);
+	httpReq.overrideMimeType("text/plain");
+	httpReq.send();
+</script>

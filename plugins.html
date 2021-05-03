@@ -34,13 +34,13 @@ title: Endless Sky Plugin List
 
 		let nameCell = document.createElement("td");
 		let name = document.createElement("a");
-		name.href = plugin.url;
+		name.href = plugin.homepage;
 		name.innerText = plugin.name;
 		nameCell.appendChild(name);
 		row.appendChild(nameCell);
 
 		let descCell = document.createElement("td");
-		descCell.innerText = plugin.description.replaceAll("\n", "");
+		descCell.innerText = plugin.shortDescription.replaceAll("\n", "");
 		row.appendChild(descCell);
 		
 		return row;

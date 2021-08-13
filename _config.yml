@@ -1,6 +1,10 @@
-name: Endless Sky
+title: Endless Sky
 url: https://endless-sky.github.io
 markdown: kramdown
 collections:
   - screenshots
   - artwork
+repository: endless-sky/endless-sky.github.io
+plugins:
+  - jemoji
+  - jekyll-github-metadata

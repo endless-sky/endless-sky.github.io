@@ -1,0 +1,27 @@
+#plugins-table td, #plugins-table th {
+    outline: 1px solid #ddd;
+    font-weight: normal;
+    font-style: normal;
+    padding: 10px;
+    text-align: center;
+}
+
+#plugins-table_filter {
+    padding-bottom: 2px;
+}
+
+#plugins-table img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+#plugins-table .description {
+    min-width: 225px;
+    text-align: left;
+}
+
+/* Error block styling */
+pre {
+    outline: 1px solid #ddd;
+    padding: 1rem;
+}

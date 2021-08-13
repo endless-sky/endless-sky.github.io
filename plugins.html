@@ -2,7 +2,12 @@
 layout: default
 title: Endless Sky Plugin List
 ---
-<p>A proof-of-concept plugin sharing site is available at <a href="https://opengamemods-group.github.io/ES-Mod-Share/">opengamemods-group.github.io/ES-Mod-Share/</a>.</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ 'plugins.css' | relative_url }}">
+
 <p>Instructions for <a href="https://github.com/endless-sky/endless-sky/wiki/CreatingPlugins">creating plugins</a> are on the wiki.</p>
 <p>Eventually, it will be possible to download and install plugins from within the game. To support both that and a more detailed plugin listing here on the website, each plugin will need to provide, at minimum:</p>
 <ul>
@@ -13,4 +18,116 @@ title: Endless Sky Plugin List
 	<li><p>One or more screenshots of the plugin in action. All screenshots should have a 16:9 aspect ratio, e.g. 1280&times;720 or 1920&times;1080. (You can edit your preferences file to set the window size to an exact value.)</p></li>
 	<li><p>A download link to a zip file. Ideally, the download link changes every time a new version of the mod is released, both so that older versions remain accessible and so that the game client will be able to tell from the path when a new version is available.</p></li>
 </ul>
-<p>The preferred way to host a plugin is to create a GitHub repository for it. The "gh-pages" branch of the repository should contain the cover image and screenshots, and may also host a web page providing more information about the plugin. The "master" branch should contain the plugin itself. New downloads can be created just by tagging a release in the master branch.</p>
+<p>The preferred way to host a plugin is to create a GitHub repository for it. The "gh-pages" branch of the repository should contain the cover image and screenshots, and may also host a web page providing more information about the plugin. The default branch should contain the plugin itself. New downloads can be created just by tagging a release in the default branch.</p>
+<br>
+
+<div id=plugin-list><p>Loading plugins...</p></div>
+
+<script type="text/javascript">
+document.onreadystatechange = () => { if (document.readyState === 'complete') init(); };
+function init() {
+	const headers = ['icon', 'name', 'author', 'license', 'description'];
+	const colOptions = [{ orderable: false, searchable: false, targets: 0 }, ];
+	const nodeGen = {
+		author: (plugin) => createByline(plugin),
+		description: ({ shortDescription }) => shortDescription.replace(/\n/g, ' '),
+		icon: ({ iconUrl, name }) => createIcon(iconUrl, name),
+		license: ({ license }) => createLicense(license),
+		name: (plugin) => createName(plugin),
+	};
+
+	fetch('https://raw.githubusercontent.com/EndlessSkyCommunity/endless-sky-plugins/master/generated/plugins.json')
+		.then((resp) => {
+			if(resp.ok) return resp.json();
+			throw new Error(`Failed to fetch plugin manifest: HTTP ${resp.status} ${resp.statusText}`);
+		})
+		.then((json) => {
+			const root = document.getElementById('plugin-list');
+			const table = createPluginsTable(json);
+			root.replaceChild(table, root.firstChild);
+			$(table).DataTable({
+				columnDefs: colOptions,
+				order: [[1, 'asc']],
+			});
+		})
+		.catch((err) => {
+			const node = document.getElementById('plugin-list');
+			node.id += '-error';
+			node.firstElementChild.innerHTML = '<span class="centered">:warning: There was a problem displaying the list of plugins here. :warning:</span><br>'
+				+ 'Don\'t worry, you can visit the <a href="https://github.com/EndlessSkyCommunity/endless-sky-plugins">Endless Sky plugins</a> repository directly. '
+				+ 'Please consider reporting this error on <a href="{{ site.github.repository_url }}">GitHub</a> or <a href="https://discord.gg/ZeuASSx">Discord</a>:';
+			const pre = document.createElement('pre');
+			const stack = !('stack' in err) ? '' : err.stack.split(/\n/).filter((t) => t.trim() && !t.includes(err.message))
+				.map((t) => `  at ${t.trim().replace('at ', '')}`).join('\n')
+				.replace(err.message, ''); // Chromium includes the message in the stack, while Firefox does not.
+			pre.textContent = `${err}\n${stack}`;
+			node.append(pre);
+		});
+
+	function createCell(type, classname, ...stringOrNodes) {
+		const cell = document.createElement(type);
+		cell.classList.add(classname);
+		cell.append(...stringOrNodes);
+		return cell;
+	}
+	function createRow(pluginData) {
+		const row = document.createElement('tr');
+		const cells = headers.map((column) => {
+			const fn = nodeGen[column] || (() => '');
+			const stringOrNodes = fn(pluginData);
+			return stringOrNodes ? createCell('td', column, ...stringOrNodes) : createCell('td', '(not provided)');
+		});
+		row.append(...cells);
+		return row;
+	}
+	function createPluginsTable(pluginList) {
+		const table = document.createElement('table');
+		table.id = 'plugins-table';
+		const header = document.createElement('thead');
+		const headerRow = document.createElement('tr');
+		headerRow.append(...headers.map((name) => {
+			const cell = document.createElement('th');
+			cell.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+			return cell;
+		}));
+		header.appendChild(headerRow);
+		table.appendChild(header);
+
+		const body = document.createElement('tbody');
+		body.append(...pluginList.map(createRow));
+		table.appendChild(body);
+		return table;
+	}
+	function createIcon(url = '{{ "/images/unknown-outfit.png" | absolute_url }}', name) {
+		const img = document.createElement('img');
+		img.src = url;
+		img.decoding = 'async';
+		img.loading = 'lazy';
+		img.alt = `Icon for plugin ${name}`;
+		img.classList.add('plugin-icon', 'centered');
+		return [img];
+	}
+	function createLicense(spdx = '') {
+		if (!spdx) {
+			return ['All Rights Reserved by author(s)'];
+		}
+		const link = document.createElement('a');
+		link.href = `https://spdx.org/licenses/${spdx}.html`;
+		link.text = spdx;
+		return [link];
+	}
+	function createName({ name, homepage, version }) {
+		const link = document.createElement('a');
+		link.href = homepage;
+		link.text = name;
+		link.classList.add('plugin-name');
+		return [link, document.createElement('br'), `Version: ${version.substring(0, 7)}`];
+	}
+	function createByline({ author, authors }) {
+		if (author) return author;
+		if (Array.isArray(authors)) return authors[0];
+		if (typeof authors === 'string') return authors.split(',')[0];
+		return '(unknown author)';
+	}
+};
+</script>

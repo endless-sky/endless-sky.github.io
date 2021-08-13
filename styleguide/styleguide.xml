@@ -624,6 +624,14 @@ x = temp;
 </BODY>
 </STYLEPOINT>
 
+<STYLEPOINT title="Indentation in blank lines">
+<SUMMARY>Blank lines should be indented to the same level as the code directly above and below it.</SUMMARY>
+<BODY>
+<p>The indentation should be such that a new expression could be entered on the otherwise-empty line and immediately be aligned with other expressions having the same block scope.</p>
+<p>This should help developers with editors that take indentation for new code from the line above, or do not have automatic indentation detection.</p>
+</BODY>
+</STYLEPOINT>
+
 <STYLEPOINT title="One expression per line">
 <SUMMARY>Do not put multiple expression on the same line.</SUMMARY>
 <BODY>

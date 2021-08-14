@@ -1,6 +1,56 @@
+---
+---
 <html>
 <head><title>Endless Sky Ship Builder</title>
+<link rel="stylesheet" type="text/css" href="{{ 'assets/css/ship-builder.css' | absolute_url }}">
+</head>
+
+<body>
+<!-- TODO: don't use a table to control layout -->
+<table role="presentation">
+<tr>
+	<td class="controls">
+		<p>
+			<label for="sprite-selector">Select a ship sprite:</label>
+			<input type="file" id="sprite-selector" name="file" onchange="loadImage()" title="Select a ship sprite" accept="image/png" />
+		</p>
+
+		<p>
+			<label for="swizzle">Swizzle:</label>
+			<select name="swizzle" id="swizzle" onchange="setSwizzle()">
+				<option value="0" selected>Republic (No swizzle)</option>
+				<option value="1">Unused (G &harr; B)</option>
+				<option value="2">Militia (R &harr; G)</option>
+				<option value="3">Unused (R &rarr; G &rarr; B &rarr; R)</option>
+				<option value="4">Syndicate (R &rarr; B &rarr; G &rarr; R)</option>
+				<option value="5">Merchant (R &harr; B)</option>
+				<option value="6">Pirate (G &rarr; R, B &rarr; G)</option>
+			</select>
+			#<input title="Swizzle Number" id="swizzle-value" type="text" disabled value="0">
+		</p>
+
+		<p>
+			<input type="checkbox" id="showOutline" onchange="setShowOutline()" />
+			<label for="showOutline">Show collision mask</label>
+		</p>
+
+		<p class="hardpoint-type">
+			<input type="button" value="gun" onclick="addPoint(this.value)" title="Create a gun mount at the selected position" />
+			<input type="button" value="turret" onclick="addPoint(this.value)" title="Create a turret mount at the selected position" />
+			<input type="button" value="engine" onclick="addPoint(this.value)" title="Create a engine mount at the selected position" />
+		</p>
+		<p>Load an image (regular resolution or @2x), click on where each hardpoint should be, then click one of the buttons above to add the selected point to a list of points (which will be shown below). You can then copy that list into your ship definition.</p>
+		<pre id="points"></pre>
+	</td>
+	<td class="image-display">
+		<canvas id="canvas"></canvas>
+	</td>
+</tr>
+</table>
+</body>
+
 <script type="text/javascript">
+document.onreadystatechange = () => { if (document.readyState === 'complete') initialize(); };
 
 // Globals.
 var reader;
@@ -54,6 +104,7 @@ function drawCoordinates(x, y) {
 	// pixel, since this is either a scaled-up image or an @2x file.
 	xCoordinate = .5 * (x - .5 * canvas.width);
 	yCoordinate = .5 * (y - .5 * canvas.height);
+
 	drawImage();
 }
 
@@ -181,8 +232,7 @@ function addPoint(name)
 	if(isNaN(xCoordinate) || isNaN(yCoordinate))
 		return;
 	
-	var points = document.getElementById("points");
-	points.innerHTML += "\t" + name + " " + xCoordinate + " " + yCoordinate + "\n";
+	document.getElementById("points").textContent += `\t${name} ${xCoordinate} ${yCoordinate}\n`;
 }
 
 
@@ -192,15 +242,21 @@ function loadImage() {
 	if(typeof window.FileReader !== 'function')
 		return;
 	
-	// Check that a file has been specified.
-	var input = document.getElementById("file");
+	// Check that a file has been specified, and it isn't too large.
+	// (3 MB is also extremely large for a single ship sprite!)
+	const input = document.getElementById("sprite-selector");
 	if(!input || !input.files || !input.files[0])
 		return;
-	
+	const file = input.files[0];
+	if (file.size > 3 * 1024 * 1024) {
+		window.alert(`"${file.name}" is too large -- create a smaller asset!`);
+		input.value = '';
+		return;
+	}
+
 	// Begin loading the file.
 	reader = new FileReader();
 	reader.onload = createImage;
-	var file = input.files[0];
 	reader.readAsDataURL(file);
 	
 	// The scale depends on whether this is an @2x image.
@@ -227,63 +283,23 @@ function imageLoaded() {
 	yCoordinate = NaN;
 	drawImage();
 	
-	document.getElementById("points").innerHTML = "";
+	canvas.classList.add('has-image');
+	document.getElementById("points").textContent = "";
 }
 
 
 function setSwizzle() {
 	swizzle = Number(document.getElementById("swizzle").value);
-	
-	var NAME = [
-		"Republic (No swizzle)",
-		"Unused (G &harr; B)",
-		"Militia (R &harr; G)",
-		"Unused (R &rarr; G &rarr; B &rarr; R)",
-		"Syndicate (R &rarr; B &rarr; G &rarr; R)",
-		"Merchant (R &harr; B)",
-		"Pirate (G &rarr; R, B &rarr; G)"
-	];
-	document.getElementById("swizzleName").innerHTML = NAME[swizzle];
-	
+	document.getElementById('swizzle-value').value = swizzle;
+
 	drawImage();
 }
 
 function setShowOutline() {
 	showOutline = document.getElementById("showOutline").checked;
-	
+
 	drawImage();
 }
 
 </script>
-<style type="text/css">
-body {
-	color: #CCCCCC;
-	background-color: #333333;
-}
-</style>
-</head>
-<body onload="initialize()">
-<table border="0">
-<tr><td valign="top">
-
-	<canvas id="canvas"></canvas>
-
-</td><td valign="top">
-
-	<p><input type="file" id="file" name="file" onchange="loadImage()" /></p>
-
-	<p>Swizzle: <input type="number" id="swizzle" value="0" min="0" max="6" onchange="setSwizzle()" />
-	<span id="swizzleName">Republic (No swizzle)</span></p>
-
-	<p><input type="checkbox" id="showOutline" onchange="setShowOutline()" /> Show collision mask</p>
-
-	<p><input type="button" value="gun" onclick="addPoint(this.value)" />
-	<input type="button" value="turret" onclick="addPoint(this.value)" />
-	<input type="button" value="engine" onclick="addPoint(this.value)" /></p>
-
-	<p>Load an image (regular resolution or @2x), click on where each hardpoint should be, then click one of the buttons above to add the selected point to a list of points (which will be shown below). You can then copy that list into your ship definition.</p>
-
-	<pre id="points"></pre>
-
-</td></tr></table>
-</body></html>
+</html>

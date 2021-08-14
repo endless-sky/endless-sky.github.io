@@ -12,7 +12,7 @@
 	<td class="controls">
 		<p>
 			<label for="sprite-selector">Select a ship sprite:</label>
-			<input type="file" id="sprite-selector" name="file" onchange="loadImage()" title="Select a ship sprite" accept="image/png" />
+			<input type="file" id="sprite-selector" name="file" title="Select a ship sprite" accept="image/png" />
 		</p>
 
 		<p>
@@ -71,10 +71,19 @@ let showOutline = false;
 
 // Add the various event listeners.
 function initialize() {
+	// Make sure the file reading API is available.
+	if (typeof window.FileReader !== 'function') {
+		window.alert('This utility requires a browser that supports the "FileReader" API');
+		return;
+	}
+
 	const canvas = document.getElementById("canvas");
 	canvas.addEventListener("mousedown", onMouseDown);
 	canvas.addEventListener("mousemove", onMouseMove);
 	document.body.addEventListener("mouseup", onMouseUp);
+
+	// File selection callback.
+	document.getElementById('sprite-selector').addEventListener('change', loadImage, { capture: false, passive: true });
 }
 
 
@@ -246,18 +255,12 @@ function addPoint(name)
 }
 
 
-// Load an image file.
-function loadImage() {
-	// Make sure the file reading API is available.
-	if (typeof window.FileReader !== 'function')
-		return;
-	
-	// Check that a file has been specified, and it isn't too large.
-	// (3 MB is also extremely large for a single ship sprite!)
-	const input = document.getElementById("sprite-selector");
-	if (!input || !input.files || !input.files[0])
-		return;
-	const file = input.files[0];
+// Load a reasonably-sized image file. Theoretically we can work on any file size,
+// but anything that is over a certain size is going to 1) not be sized appropriately,
+// and 2) bloat the Endless Sky memory requirements for no good reason.
+function loadImage(changeEvent) {
+	const file = changeEvent.target.files?.[0];
+	if (!file) return;
 	if (file.size > 3 * 1024 * 1024) {
 		window.alert(`"${file.name}" is too large -- create a smaller asset!`);
 		input.value = '';

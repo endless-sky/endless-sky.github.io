@@ -30,8 +30,8 @@
 		</p>
 
 		<p>
-			<input type="checkbox" id="showOutline" onchange="setShowOutline()" />
-			<label for="showOutline">Show collision mask</label>
+			<input type="checkbox" id="show-outline" />
+			<label for="show-outline">Show collision mask</label>
 		</p>
 
 		<p class="hardpoint-type">
@@ -86,6 +86,8 @@ function initialize() {
 	document.getElementById('sprite-selector').addEventListener('change', loadImage, { capture: false, passive: true });
 	// Swizzle selection change.
 	document.getElementById('swizzle-select').addEventListener('change', setSwizzle, { capture: false, passive: true });
+	// Collision-mask toggle.
+	document.getElementById('show-outline').addEventListener('change', setShowOutline, { capture: false, passive: true });
 }
 
 
@@ -310,8 +312,8 @@ function setSwizzle(changeEvent) {
 	drawImage();
 }
 
-function setShowOutline() {
-	showOutline = document.getElementById("showOutline").checked;
+function setShowOutline(changeEvent) {
+	showOutline = changeEvent.target.checked;
 
 	drawImage();
 }

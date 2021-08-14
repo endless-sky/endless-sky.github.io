@@ -16,8 +16,8 @@
 		</p>
 
 		<p>
-			<label for="swizzle">Swizzle:</label>
-			<select name="swizzle" id="swizzle" onchange="setSwizzle()">
+			<label for="swizzle-select">Swizzle:</label>
+			<select name="swizzle" id="swizzle-select">
 				<option value="0" selected>Republic (No swizzle)</option>
 				<option value="1">Unused (G &harr; B)</option>
 				<option value="2">Militia (R &harr; G)</option>
@@ -84,6 +84,8 @@ function initialize() {
 
 	// File selection callback.
 	document.getElementById('sprite-selector').addEventListener('change', loadImage, { capture: false, passive: true });
+	// Swizzle selection change.
+	document.getElementById('swizzle-select').addEventListener('change', setSwizzle, { capture: false, passive: true });
 }
 
 
@@ -301,8 +303,8 @@ function imageLoaded() {
 }
 
 
-function setSwizzle() {
-	swizzle = Number(document.getElementById("swizzle").value);
+function setSwizzle(changeEvent) {
+	swizzle = Number(changeEvent.target.value);
 	document.getElementById('swizzle-value').value = swizzle;
 
 	drawImage();

@@ -130,7 +130,7 @@ function drawCoordinates(x, y) {
 function drawImage() {
 	/** @type {HTMLCanvasElement} */
 	const canvas = document.getElementById("canvas");
-	const context = canvas.getContext("2d");
+	const context = canvas.getContext("2d", { alpha: true, desynchronized: true });
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	if (image)
 		context.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -287,10 +287,6 @@ function loadImage(changeEvent) {
 		scale = 1;
 	else
 		scale = 2;
-
-	for (const el of document.querySelectorAll('.hardpoint-type button')) {
-		el.removeAttribute('disabled');
-	}
 }
 
 // An image file has been loaded. Convert it to an image.
@@ -302,6 +298,13 @@ function createImage(fileLoadEvent) {
 
 // An image has been created. Draw it.
 function imageLoaded() {
+	if (Math.max(image.width, image.height) > 30000 || (image.width * image.height > 268000000)) {
+		// TODO: Dynamic scaling would resolve this, but would also mean we need to handle
+		// conversion from the data URL to pixel array ourselves.
+		window.alert('Image dimensions too large for <canvas> utility');
+		document.getElementById('sprite-selector').value = '';
+		return;
+	}
 	const canvas = document.getElementById("canvas");
 	canvas.width = scale * image.width;
 	canvas.height = scale * image.height;
@@ -312,6 +315,9 @@ function imageLoaded() {
 	
 	canvas.classList.add('has-image');
 	document.getElementById("points").textContent = "";
+	for (const el of document.querySelectorAll('.hardpoint-type button')) {
+		el.removeAttribute('disabled');
+	}
 }
 
 

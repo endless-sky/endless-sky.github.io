@@ -1,0 +1,36 @@
+body {
+	color: #CCCCCC;
+	background-color: #333333;
+}
+
+table {
+	border: hidden;
+}
+
+.controls {
+	vertical-align: top;
+	max-width: 25rem;
+}
+
+.controls button[disabled] {
+	color: #000000;
+}
+
+.controls button {
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	padding: 0.25rem;
+}
+
+.image-display {
+	vertical-align: top;
+}
+
+.image-display canvas.has-image {
+	border: 1px solid #000000;
+}
+
+#swizzle-value {
+	width: 2rem;
+	color: #000000;
+}

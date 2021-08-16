@@ -240,7 +240,7 @@ function drawImage() {
 	}
 	context.putImageData(imageData, 0, 0);
 	
-	if (isNaN(xCoordinate) || isNaN(yCoordinate))
+	if (Number.isNaN(xCoordinate) || Number.isNaN(yCoordinate))
 		return;
 	const x = xCoordinate * 2 + .5 * canvas.width;
 	const y = yCoordinate * 2 + .5 * canvas.height;
@@ -256,7 +256,7 @@ function drawImage() {
 // Add a named point to the list of points.
 function addPoint(clickEvent)
 {
-	if (isNaN(xCoordinate) || isNaN(yCoordinate)) {
+	if (Number.isNaN(xCoordinate) || Number.isNaN(yCoordinate)) {
 		window.alert('Select a valid point on the image.');
 		return;
 	}

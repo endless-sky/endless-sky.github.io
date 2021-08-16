@@ -53,7 +53,6 @@
 document.onreadystatechange = () => { if (document.readyState === 'complete') initialize(); };
 
 // Globals.
-let reader = null;
 let image = null;
 // Keep track of whether the mouse button is down.
 let isDragging = false;
@@ -279,7 +278,7 @@ function loadImage(changeEvent) {
 	}
 
 	// Begin loading the file.
-	reader = new FileReader();
+	const reader = new FileReader();
 	reader.onload = createImage;
 	reader.readAsDataURL(file);
 	
@@ -295,10 +294,10 @@ function loadImage(changeEvent) {
 }
 
 // An image file has been loaded. Convert it to an image.
-function createImage() {
+function createImage(fileLoadEvent) {
 	image = new Image();
 	image.onload = imageLoaded;
-	image.src = reader.result;
+	image.src = fileLoadEvent.target.result;
 }
 
 // An image has been created. Draw it.

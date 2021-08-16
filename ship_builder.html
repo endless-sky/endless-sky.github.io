@@ -57,8 +57,8 @@ let image = null;
 // Keep track of whether the mouse button is down.
 let isDragging = false;
 // Coordinates of the most recent mouse click or drag in the canvas.
-let xCoordinate = NaN;
-let yCoordinate = NaN;
+let xCoordinate = Number.NaN;
+let yCoordinate = Number.NaN;
 // Normal images should be shown at twice their resolution, but an image with
 // "@2x" at the end of its file name will be drawn at 1x resolution.
 let scale = 2;
@@ -168,87 +168,97 @@ function drawImage() {
 	}
 	
 	if (showOutline) {
-		const DIR = [
-			pixels.length - 4 * canvas.width,
-			pixels.length - 4 * canvas.width + 4,
-			4,
-			4 * canvas.width + 4,
-			4 * canvas.width,
-			4 * canvas.width - 4,
-			pixels.length - 4,
-			pixels.length - 4 * canvas.width - 4
-		];
+		setCollisionMaskData(pixels, canvas.width);
+	}
 
-		const hasOutline = [];
-		let start = 0;
-		while (start < pixels.length) {
-			// Find a non-empty pixel that has no outline.
-			for ( ; start < pixels.length; start += 4) {
-				if (pixels[start + 3]) {
-					// The pixel is occupied and not an outline, start tracing.
-					if (!hasOutline[start])
+	// Repaint the canvas with the new pixel data.
+	context.putImageData(imageData, 0, 0);
+
+	// Draw the current selection, if one exists.
+	drawCoordinateCircle(context, canvas);
+}
+
+
+function setCollisionMaskData(pixels, canvasWidth) {
+	const rowOffset = 4 * canvasWidth;
+	const DIR = [
+		pixels.length - rowOffset,
+		pixels.length - rowOffset + 4,
+		4,
+		rowOffset + 4,
+		rowOffset,
+		rowOffset - 4,
+		pixels.length - 4,
+		pixels.length - rowOffset - 4
+	];
+
+	const hasOutline = [];
+	let start = 0;
+	while (start < pixels.length) {
+		// Find a non-empty pixel that has no outline.
+		for ( ; start < pixels.length; start += 4) {
+			if (pixels[start + 3]) {
+				// The pixel is occupied and not an outline, start tracing.
+				if (!hasOutline[start])
+					break;
+				// Skip to the next unoccupied pixel.
+				for (start += 4; start < pixels.length; start += 4)
+					if (!pixels[start + 3])
 						break;
-					// Skip to the next unoccupied pixel.
-					for (start += 4; start < pixels.length; start += 4)
-						if (!pixels[start + 3])
-							break;
+			}
+		}
+		if (start >= pixels.length)
+			break;
+	
+		let pos = start;
+		let d = 7;
+		const directions = [];
+		do {
+			hasOutline[pos] = true;
+			// Find the next occupied pixel.
+			let firstD = d;
+			let isAlone = false;
+			while (true) {
+				if (pixels[(pos + 3 + DIR[d]) % pixels.length])
+					break;
+				d = (d + 1) % 8;
+				if (d == firstD) {
+					isAlone = true;
+					break;
 				}
 			}
-			if (start >= pixels.length)
+			if (isAlone)
 				break;
+			directions.push(d);
+			// Continue tracing the outline at that pixel.
+			pos = (pos + DIR[d]) % pixels.length;
+			d = (d + 6) % 8;
+			// Loop until we are back where we started.
+		} while (pos != start);
 		
-			let pos = start;
-			let d = 7;
-			const directions = [];
-			do {
-				hasOutline[pos] = true;
-				// Find the next occupied pixel.
-				let firstD = d;
-				let isAlone = false;
-				while (true) {
-					if (pixels[(pos + 3 + DIR[d]) % pixels.length])
-						break;
-					d = (d + 1) % 8;
-					if (d == firstD) {
-						isAlone = true;
-						break;
-					}
-				}
-				if (isAlone)
-					break;
-				directions.push(d);
-				// Continue tracing the outline at that pixel.
-				pos = (pos + DIR[d]) % pixels.length;
-				d = (d + 6) % 8;
-				// Loop until we are back where we started.
-			} while (pos != start);
-			
-			// At least 4 points are needed to circle a transparent pixel.
-			if (directions.length < 4)
-				continue;
-			
-			// Fill raw outline (no interpolation and no simplification).
-			pos = start;
-			let i = 0;
-			do {
-				// Draw this outline pixel.
-				pixels[pos + 0] = 255;
-				pixels[pos + 1] = 0;
-				pixels[pos + 2] = 0;
-				pixels[pos + 3] = 255;
-				pos = (pos + DIR[directions[i]]) % pixels.length;
-				++i;
-			} while (pos != start);
-		}
+		// At least 4 points are needed to circle a transparent pixel.
+		if (directions.length < 4)
+			continue;
+		
+		// Fill raw outline (no interpolation and no simplification).
+		pos = start;
+		let i = 0;
+		do {
+			// Draw this outline pixel.
+			pixels[pos + 0] = 255;
+			pixels[pos + 1] = 0;
+			pixels[pos + 2] = 0;
+			pixels[pos + 3] = 255;
+			pos = (pos + DIR[directions[i]]) % pixels.length;
+			++i;
+		} while (pos != start);
 	}
-	context.putImageData(imageData, 0, 0);
-	drawCoordinateCircle(context, canvas);
 }
 
 
 /**
  * @param {CanvasRenderingContext2D} context The 2D drawing context of the <canvas>
- * @param {width: number, height: number} o The image's displayed width & height.
+ * @param {{width: number, height: number}} o The image's displayed width & height.
  */
 function drawCoordinateCircle(context, { width, height }) {
 	if (Number.isNaN(xCoordinate) || Number.isNaN(yCoordinate))

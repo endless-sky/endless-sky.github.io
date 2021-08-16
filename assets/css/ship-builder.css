@@ -12,6 +12,16 @@ table {
 	max-width: 25rem;
 }
 
+.controls button[disabled] {
+	color: #000000;
+}
+
+.controls button {
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
+	padding: 0.25rem;
+}
+
 .image-display {
 	vertical-align: top;
 }

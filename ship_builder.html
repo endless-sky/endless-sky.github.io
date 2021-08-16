@@ -35,9 +35,9 @@
 		</p>
 
 		<p class="hardpoint-type">
-			<input type="button" value="gun" onclick="addPoint(this.value)" title="Create a gun mount at the selected position" />
-			<input type="button" value="turret" onclick="addPoint(this.value)" title="Create a turret mount at the selected position" />
-			<input type="button" value="engine" onclick="addPoint(this.value)" title="Create a engine mount at the selected position" />
+			<button type="button" disabled name="gun" title="Create a gun mount at the selected position">gun</button>
+			<button type="button" disabled name="turret" title="Create a turret mount at the selected position">turret</button>
+			<button type="button" disabled name="engine" title="Create a engine mount at the selected position">engine</button>
 		</p>
 		<p>Load an image (regular resolution or @2x), click on where each hardpoint should be, then click one of the buttons above to add the selected point to a list of points (which will be shown below). You can then copy that list into your ship definition.</p>
 		<pre id="points"></pre>
@@ -88,6 +88,10 @@ function initialize() {
 	document.getElementById('swizzle-select').addEventListener('change', setSwizzle, { capture: false, passive: true });
 	// Collision-mask toggle.
 	document.getElementById('show-outline').addEventListener('change', setShowOutline, { capture: false, passive: true });
+	// Hardpoint buttons click handlers.
+	for (const el of document.querySelectorAll('.hardpoint-type button')) {
+		el.addEventListener('click', addPoint, { capture: false, passive: true });
+	};
 }
 
 
@@ -115,6 +119,7 @@ function onMouseUp(event) {
 function drawCoordinates(x, y) {
 	// The center of the image is (0, 0). Each pixel counts as half of a source
 	// pixel, since this is either a scaled-up image or an @2x file.
+	const canvas = document.getElementById('canvas');
 	xCoordinate = .5 * (x - .5 * canvas.width);
 	yCoordinate = .5 * (y - .5 * canvas.height);
 
@@ -250,12 +255,14 @@ function drawImage() {
 
 
 // Add a named point to the list of points.
-function addPoint(name)
+function addPoint(clickEvent)
 {
-	if (isNaN(xCoordinate) || isNaN(yCoordinate))
+	if (isNaN(xCoordinate) || isNaN(yCoordinate)) {
+		window.alert('Select a valid point on the image.');
 		return;
+	}
 	
-	document.getElementById("points").textContent += `\t${name} ${xCoordinate} ${yCoordinate}\n`;
+	document.getElementById("points").textContent += `\t${clickEvent.target.name} ${xCoordinate} ${yCoordinate}\n`;
 }
 
 
@@ -281,6 +288,10 @@ function loadImage(changeEvent) {
 		scale = 1;
 	else
 		scale = 2;
+
+	for (const el of document.querySelectorAll('.hardpoint-type button')) {
+		el.removeAttribute('disabled');
+	}
 }
 
 // An image file has been loaded. Convert it to an image.

@@ -126,7 +126,10 @@ function drawCoordinates(x, y) {
 }
 
 
-// Draw the image.
+// Draw the image. Since <canvas> does not support "layers," we must always redraw everything
+// that the user wants to see. (An alternative would be to manually composite layers, e.g. use
+// multiple <canvas> elements and use one to draw the swizzled image, one to draw the current
+// point, one to draw the outline, etc.)
 function drawImage() {
 	/** @type {HTMLCanvasElement} */
 	const canvas = document.getElementById("canvas");
@@ -239,11 +242,19 @@ function drawImage() {
 		}
 	}
 	context.putImageData(imageData, 0, 0);
-	
+	drawCoordinateCircle(context, canvas);
+}
+
+
+/**
+ * @param {CanvasRenderingContext2D} context The 2D drawing context of the <canvas>
+ * @param {width: number, height: number} o The image's displayed width & height.
+ */
+function drawCoordinateCircle(context, { width, height }) {
 	if (Number.isNaN(xCoordinate) || Number.isNaN(yCoordinate))
 		return;
-	const x = xCoordinate * 2 + .5 * canvas.width;
-	const y = yCoordinate * 2 + .5 * canvas.height;
+	const x = xCoordinate * 2 + .5 * width;
+	const y = yCoordinate * 2 + .5 * height;
 	
 	context.beginPath();
 	context.arc(x, y, 5, 0, 2 * Math.PI, false);

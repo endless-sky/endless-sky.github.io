@@ -115,35 +115,35 @@
             <div class="form-section">
                 <h3>Basics:</h3>
 
-                <div class="hint">The name of your Plug-In.</div>
+                <label class="hint" for="name">The name of your Plug-In.</label>
                 <input name="name" id="name" type="text" placeholder="My Awesome Plug-In">
 
-                <div class="hint">One or more authors.</div>
+                <label class="hint" for="authors">One or more authors.</label>
                 <input name="authors" id="authors" type="text" placeholder="Michael Zahniser & Contributors">
             </div>
 
             <div class="form-section">
                 <h3>Homepage:</h3>
 
-                <div class="hint">The homepage of your Plug-In. If you don't have a dedicated homepage, it is common to
-                    use your Github Repository.</div>
+                <label class="hint" for="homepage">The homepage of your Plug-In. If you don't have a dedicated homepage, it is common to
+                    use your Github Repository.</label>
                 <input name="homepage" id="homepage" type="text"
                     placeholder="https://github.com/endless-sky/endless-sky-high-dpi/">
 
-                <div class="hint">Your repository's git URL. Leave blank if you used your Github repository as homepage,
-                    or if your homepage redirects to a git URL.</div>
+                <label class="hint" for="update-url">Your repository's git URL. Leave blank if you used your Github repository as homepage,
+                    or if your homepage redirects to a git URL.</label>
                 <input name="update-url" id="update-url" type="text"
                     placeholder="https://github.com/endless-sky/endless-sky-high-dpi.git">
             </div>
 
             <div class="form-section">
                 <h3>License:</h3>
-                <div class="hint">
+                <label class="hint" for="license">
                     A License Identifier as found on <a href="https://spdx.org/licenses/">SPDX</a>. Common
                     Licenses are <code>GPL-3.0-or-later</code> (used by Endless Sky) or <code>CC-BY-SA-4.0</code> (used
                     by
                     the High DPI plugin).
-                </div>
+                </label>
                 <input name="license" id="license" type="text" placeholder="CC-BY-SA-4.0">
                 <div class="status warning" id="license-status">Loading License List...</div>
             </div>
@@ -160,9 +160,9 @@
                     <label for="version-type-commit">Commit</label>
                 </fieldset>
 
-                <div class="hint">
+                <label class="hint" for="version">
                     The latest version of your Plug-In.
-                </div>
+                </label>
                 <input name="version" id="version" type="text" placeholder="v0.9.14">
                 <div class="status error" id="license-status"></div>
             </div>
@@ -170,12 +170,12 @@
             <div class="form-section">
                 <h3>Descriptions:</h3>
 
-                <div class="hint">A short description. Ideally less than 150 characters, must be less than 200.</div>
+                <label class="hint" for="short-description">A short description. Ideally less than 150 characters, must be less than 200.</label>
                 <textarea name="short-description" id="short-description" type="textbox"
                     placeholder="High-DPI graphics for Endless Sky." rows="1"></textarea>
                 <div class="status" id="short-description-status">0/200</div>
 
-                <div class="hint">A description of arbitrary length.</div>
+                <label class="hint" for="description">A description of arbitrary length.</label>
                 <textarea name="description" id="description" type="textbox" rows="2"
                     placeholder="This plugin contains double resolution graphics, which are only used if you have a high-dpi monitor or if you set the zoom level above 100%. This will roughly double the amount of memory used by the game."></textarea>
             </div>
@@ -183,15 +183,15 @@
             <div class="form-section">
                 <h3>Download URLs:</h3>
 
-                <div class="hint">A URL to a direct .zip download. It's important that this URL be "versioned", i.e.
-                    contains your version, so it may only point to a download for this release and no other.</div>
+                <label class="hint" for="download-url">A URL to a direct .zip download. It's important that this URL be "versioned", i.e.
+                    contains your version, so it may only point to a download for this release and no other.</label>
                 <input name="download-url" id="download-url" type="text"
                     placeholder="https://github.com/endless-sky/endless-sky-high-dpi/archive/refs/tags/v0.9.14.zip">
                 <div class="status" id="download-url-status"></div>
 
                 <br>
-                <div class="hint">A URL to your plugin's icon, if any. Make sure this URL is versioned, just like the
-                    one above.</div>
+                <label class="hint" for="icon-url">A URL to your plugin's icon, if any. Make sure this URL is versioned, just like the
+                    one above.</label>
                 <input name="icon-url" id="icon-url" type="text"
                     placeholder="https://github.com/endless-sky/endless-sky-high-dpi/raw/v0.9.14/icon.png">
                 <div class="status" id="icon-url-status"></div>
@@ -218,6 +218,7 @@
         navigator.clipboard.writeText(text);
     });
 
+	let licenses = [];
     fetch('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')
         .then(response => {
             if (response.status == 200) {

@@ -642,14 +642,7 @@ x = temp;
 <SUMMARY>Do not put a space before or after the parentheses for functions and control statements.</SUMMARY>
 <BODY>
 <p>There is no consensus on this among programmers. But, the mathematical convention is to never put a space, i.e. you never write "sin (x)". Much of our code is mathematical in nature, so it makes sense to follow that convention.</p>
-<p>If you are used to putting spaces before the parentheses, rather than trying to adjust your typing you might find it easier to just do a find/replace before committing your code, e.g. replacing "if (" with "if(", etc. You can also grep the svn diff of your changes for "^+.*\ (" to check if you missed anything.</p>
-</BODY>
-</STYLEPOINT>
-
-<STYLEPOINT title="Function calls">
-<SUMMARY>Do not put a space inside the parentheses for method or function calls.</SUMMARY>
-<BODY>
-<p>The only exceptions are macro calls, that are only found in unit tests:</p>
+<p>As part of that convention, also don't put spaces inside the parentheses (like "sin( x )"). The only exceptions from this rule are macro calls in the unit tests:</p>
 <CODE_SNIPPET>
 SCENARIO( "Creating an Account" , "[Account][Creation]" ) {
     GIVEN( "an account" ) {
@@ -671,6 +664,7 @@ SCENARIO( "Creating an Account" , "[Account][Creation]" ) {
     }
 }
 </CODE_SNIPPET>
+<p>If you are used to putting spaces before the parentheses, rather than trying to adjust your typing you might find it easier to just do a find/replace before committing your code, e.g. replacing "if (" with "if(", etc. You can also grep the svn diff of your changes for "^+.*\ (" to check if you missed anything.</p>
 </BODY>
 </STYLEPOINT>
 

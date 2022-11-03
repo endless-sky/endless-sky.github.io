@@ -36,7 +36,7 @@ function init() {
 		name: (plugin) => createName(plugin),
 	};
 
-	fetch('https://raw.githubusercontent.com/EndlessSkyCommunity/endless-sky-plugins/master/generated/plugins.json')
+	fetch('https://raw.githubusercontent.com/endless-sky/endless-sky-plugins/master/generated/plugins.json')
 		.then((resp) => {
 			if(resp.ok) return resp.json();
 			throw new Error(`Failed to fetch plugin manifest: HTTP ${resp.status} ${resp.statusText}`);
@@ -54,7 +54,7 @@ function init() {
 			const node = document.getElementById('plugin-list');
 			node.id += '-error';
 			node.firstElementChild.innerHTML = '<span class="centered">:warning: There was a problem displaying the list of plugins here. :warning:</span><br>'
-				+ 'Don\'t worry, you can visit the <a href="https://github.com/EndlessSkyCommunity/endless-sky-plugins">Endless Sky plugins</a> repository directly. '
+				+ 'Don\'t worry, you can visit the <a href="https://github.com/endless-sky/endless-sky-plugins">Endless Sky plugins</a> repository directly. '
 				+ 'Please consider reporting this error on <a href="{{ site.github.repository_url }}">GitHub</a> or <a href="https://discord.gg/ZeuASSx">Discord</a>:';
 			const pre = document.createElement('pre');
 			const stack = !('stack' in err) ? '' : err.stack.split(/\n/).filter((t) => t.trim() && !t.includes(err.message))

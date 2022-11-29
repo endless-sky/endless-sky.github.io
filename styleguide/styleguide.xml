@@ -10,7 +10,7 @@ Those files are licensed under the CC-By 3.0 License.
 Although this file uses the formatting from the Google C++ style guide, the
 file contents are completely different, so please do not confuse the two. -->
 
-<p class="revision">Revision 1.0</p>
+<p class="revision">Revision 1.1</p>
 
 <OVERVIEW>
 <CATEGORY title="Background">
@@ -83,7 +83,10 @@ Foundation, either version 3 of the License, or (at your option) any later versi
 
 Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
 */
 </CODE_SNIPPET>
 </SUMMARY>
@@ -625,10 +628,9 @@ x = temp;
 </STYLEPOINT>
 
 <STYLEPOINT title="Indentation in blank lines">
-<SUMMARY>Blank lines should be indented to the same level as the code directly above and below it.</SUMMARY>
+<SUMMARY>Blank lines should not be indented.</SUMMARY>
 <BODY>
-<p>The indentation should be such that a new expression could be entered on the otherwise-empty line and immediately be aligned with other expressions having the same block scope.</p>
-<p>This should help developers with editors that take indentation for new code from the line above, or do not have automatic indentation detection.</p>
+<p>This is to avoid conflicts between different editors, and to make style checking easier.</p>
 </BODY>
 </STYLEPOINT>
 
@@ -643,6 +645,17 @@ x = temp;
 <SUMMARY>Do not put a space before or after the parentheses for functions and control statements.</SUMMARY>
 <BODY>
 <p>There is no consensus on this among programmers. But, the mathematical convention is to never put a space, i.e. you never write "sin (x)". Much of our code is mathematical in nature, so it makes sense to follow that convention.</p>
+<p>As part of that convention, also don't put spaces inside the parentheses (like "sin( x )"). The only exceptions from this rule are macro calls in the unit tests:</p>
+<CODE_SNIPPET>
+SCENARIO( "Creating an Account" , "[Account][Creation]" ) {
+    GIVEN( "an account" ) {
+        Account account;
+        WHEN( "money is added" ) {
+            ...
+        }
+    }
+}
+</CODE_SNIPPET>
 <p>If you are used to putting spaces before the parentheses, rather than trying to adjust your typing you might find it easier to just do a find/replace before committing your code, e.g. replacing "if (" with "if(", etc. You can also grep the svn diff of your changes for "^+.*\ (" to check if you missed anything.</p>
 </BODY>
 </STYLEPOINT>
@@ -851,6 +864,14 @@ if(theThing != done)
 }
 </CODE_SNIPPET>
 <p>The reasoning here is that because we do not require braces for single-line bodies, the braces should be clearly visible when they are present.</p>
+<p>The only exceptions are macro calls that are only found in the unit tests:</p>
+<CODE_SNIPPET>
+SCENARIO( "Creating an Account" , "[Account][Creation]" ) {
+    GIVEN( "an account" ) {
+        ...
+    }
+}
+</CODE_SNIPPET>
 </BODY>
 </STYLEPOINT>
 

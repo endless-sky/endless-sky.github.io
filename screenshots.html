@@ -7,22 +7,6 @@ title: Endless Sky screenshots.
 {% for image in site.screenshots %}
 	<img class="gallery-thumb" onclick="openLightbox(this)" src="{{ image.src }}" title="{{ image.title }}" alt="{{ image.alt }}" />
 {% endfor %}
-	<div id="lightbox-back" onclick="closeLightbox()">
-		<div id="lightbox">
-			<img id="lightbox-image" />
-			<div id="lightbox-previous" onclick="previousLightbox(event);">
-				<img id="lightbox-previous-arrow" src="/images/lightbox-previous.svg" />
-			</div>
-			<div id="lightbox-next" onclick="nextLightbox(event);">
-				<img id="lightbox-next-arrow" src="/images/lightbox-next.svg" />
-			</div>
-		</div>
-		<br />
-		<div id="lightbox-caption-back">
-			<p id="lightbox-title"></p>
-			<p id="lightbox-caption"></p>
-		</div>
-	</div>
 </div>
 
 <h2 class="header">Artwork / Wallpapers</h2>
@@ -32,3 +16,19 @@ title: Endless Sky screenshots.
 {% endfor %}
 </div>
 
+<div id="lightbox-back" onclick="closeLightbox()">
+	<div id="lightbox">
+		<img id="lightbox-image" />
+		<div id="lightbox-previous" onclick="previousLightbox(event);">
+			<img id="lightbox-previous-arrow" src="/images/lightbox-previous.svg" />
+		</div>
+		<div id="lightbox-next" onclick="nextLightbox(event);">
+			<img id="lightbox-next-arrow" src="/images/lightbox-next.svg" />
+		</div>
+	</div>
+	<br />
+	<div id="lightbox-caption-back">
+		<p id="lightbox-title"></p>
+		<p id="lightbox-caption"></p>
+	</div>
+</div>

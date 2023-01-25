@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.5.1/languages/yaml.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/stackoverflow-light.min.css">
+    <style>
+        @import url(https://unpkg.com/firacode@6.2.0/distr/fira_code.css);
+
+        .splitter-half {
+            width: 50%;
+        }
+
+        #splitter-left {
+            float: left;
+        }
+
+        #splitter-right {
+            float: right;
+        }
+
+        .splitter-inner {
+            padding: 20px;
+        }
+
+        .form-section {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        form h3 {
+            margin-top: 0px;
+            margin-bottom: 5px;
+        }
+
+        .status {
+            font-size: small;
+            padding-left: 5x;
+            text-align: right;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .warning {
+            color: orangered;
+        }
+
+        .hint {
+            font-size: small;
+            opacity: 80%;
+            padding: 5px;
+        }
+
+        form input[type=text] {
+            margin: 5px;
+            padding: 3px;
+            width: 100%;
+            border-width: 0px 0px 2px 0px;
+            border-color: gray;
+            font-family: 'Fira Code', monospace;
+            outline: none;
+        }
+
+        form textarea {
+            margin: 5px;
+            padding: 5px;
+            width: 100%;
+            border-width: 1px 1px 2px 1px;
+            border-color: gray;
+            font-family: 'Fira Code', monospace;
+            font-size: smaller;
+            outline: none;
+        }
+
+        form input:focus-visible {
+            border-color: #333;
+        }
+
+        form fieldset {
+            opacity: 90%;
+            margin: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        #output {
+            font-family: 'Fira Code', monospace;
+            font-size: smaller;
+            line-height: 2;
+            white-space: pre-wrap;
+        }
+
+        #copy-output-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="splitter-half" id="splitter-left">
+        <form class="splitter-inner">
+
+            <div class="form-section">
+                <h3>Basics:</h3>
+
+                <label class="hint" for="name">The name of your Plug-In.</label>
+                <input name="name" id="name" type="text" placeholder="My Awesome Plug-In">
+
+                <label class="hint" for="authors">One or more authors.</label>
+                <input name="authors" id="authors" type="text" placeholder="Michael Zahniser & Contributors">
+            </div>
+
+            <div class="form-section">
+                <h3>Homepage:</h3>
+
+                <label class="hint" for="homepage">The homepage of your Plug-In. If you don't have a dedicated homepage, it is common to
+                    use your Github Repository.</label>
+                <input name="homepage" id="homepage" type="text"
+                    placeholder="https://github.com/endless-sky/endless-sky-high-dpi/">
+
+                <label class="hint" for="update-url">Your repository's git URL. Leave blank if you used your Github repository as homepage,
+                    or if your homepage redirects to a git URL.</label>
+                <input name="update-url" id="update-url" type="text"
+                    placeholder="https://github.com/endless-sky/endless-sky-high-dpi.git">
+            </div>
+
+            <div class="form-section">
+                <h3>License:</h3>
+                <label class="hint" for="license">
+                    A License Identifier as found on <a href="https://spdx.org/licenses/">SPDX</a>. Common
+                    Licenses are <code>GPL-3.0-or-later</code> (used by Endless Sky) or <code>CC-BY-SA-4.0</code> (used
+                    by
+                    the High DPI plugin).
+                </label>
+                <input name="license" id="license" type="text" placeholder="CC-BY-SA-4.0">
+                <div class="status warning" id="license-status">Loading License List...</div>
+            </div>
+
+            <div class="form-section">
+                <h3>Version:</h3>
+
+                <fieldset>
+                    <legend>How do you want to version your Plugin?</legend>
+                    <input value="tag" name="version-type" id="version-type-tag" type="radio" checked>
+                    <label for="version-type-tag">Github Release / git tag</label>
+                    <br>
+                    <input value="commit" name="version-type" id="version-type-commit" type="radio">
+                    <label for="version-type-commit">Commit</label>
+                </fieldset>
+
+                <label class="hint" for="version">
+                    The latest version of your Plug-In.
+                </label>
+                <input name="version" id="version" type="text" placeholder="v0.9.14">
+                <div class="status error" id="license-status"></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Descriptions:</h3>
+
+                <label class="hint" for="short-description">A short description. Ideally less than 150 characters, must be less than 200.</label>
+                <textarea name="short-description" id="short-description" type="textbox"
+                    placeholder="High-DPI graphics for Endless Sky." rows="1"></textarea>
+                <div class="status" id="short-description-status">0/200</div>
+
+                <label class="hint" for="description">A description of arbitrary length.</label>
+                <textarea name="description" id="description" type="textbox" rows="2"
+                    placeholder="This plugin contains double resolution graphics, which are only used if you have a high-dpi monitor or if you set the zoom level above 100%. This will roughly double the amount of memory used by the game."></textarea>
+            </div>
+
+            <div class="form-section">
+                <h3>Download URLs:</h3>
+
+                <label class="hint" for="download-url">A URL to a direct .zip download. It's important that this URL be "versioned", i.e.
+                    contains your version, so it may only point to a download for this release and no other.</label>
+                <input name="download-url" id="download-url" type="text"
+                    placeholder="https://github.com/endless-sky/endless-sky-high-dpi/archive/refs/tags/v0.9.14.zip">
+                <div class="status" id="download-url-status"></div>
+
+                <br>
+                <label class="hint" for="icon-url">A URL to your plugin's icon, if any. Make sure this URL is versioned, just like the
+                    one above.</label>
+                <input name="icon-url" id="icon-url" type="text"
+                    placeholder="https://github.com/endless-sky/endless-sky-high-dpi/raw/v0.9.14/icon.png">
+                <div class="status" id="icon-url-status"></div>
+            </div>
+
+
+        </form>
+    </div>
+    <div class="splitter-half" id="splitter-right">
+        <div class="splitter-inner">
+            <h3>Output:</h3>
+            <pre>
+                <code id="output" class="language-yaml"></code>
+            </pre>
+            <div id="copy-output-container">
+                <button id="copy-output">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector("#copy-output").addEventListener("click", event => {
+        let text = document.querySelector("#output").textContent;
+        navigator.clipboard.writeText(text);
+    });
+
+	let licenses = [];
+    fetch('https://raw.githubusercontent.com/spdx/license-list-data/master/json/licenses.json')
+        .then(response => {
+            if (response.status == 200) {
+                return response.json();
+            }
+            else {
+                return { "licenses": [] };
+            }
+        })
+        .then(json => json.licenses.filter(l => !l.isDeprecatedLicenseId))
+        .then(list => licenses = list)
+        .then(() => generate());
+
+    let form = document.querySelector("form");
+    let nameInput = form.querySelector("#name");
+    let authorsInput = form.querySelector("#authors");
+    let homepageInput = form.querySelector("#homepage");
+    let updateUrlInput = form.querySelector("#update-url");
+    let licenseInput = form.querySelector("#license");
+    let isTagInput = form.querySelector("#version-type-tag");
+    let versionInput = form.querySelector("#version");
+    let shortDescInput = form.querySelector("#short-description");
+    let descInput = form.querySelector("#description");
+    let downloadUrlInput = form.querySelector("#download-url");
+    let iconUrlInput = form.querySelector("#icon-url");
+
+    const generate = function () {
+        let isTag = isTagInput.checked;
+        if (isTag) {
+            versionInput.placeholder = "v0.9.14";
+            downloadUrlInput.placeholder = "https://github.com/endless-sky/endless-sky-high-dpi/archive/refs/tags/v0.9.14.zip";
+            iconUrlInput.placeholder = "https://github.com/endless-sky/endless-sky-high-dpi/raw/v0.9.14/icon.png";
+        }
+        else {
+            versionInput.placeholder = "4a31a851735655e1abdbfd7ff75e139565dcde8d";
+            downloadUrlInput.placeholder = "https://github.com/endless-sky/endless-sky-high-dpi/archive/4a31a851735655e1abdbfd7ff75e139565dcde8d.zip";
+            iconUrlInput.placeholder = "https://github.com/endless-sky/endless-sky-high-dpi/raw/4a31a851735655e1abdbfd7ff75e139565dcde8d/icon.png";
+        }
+
+        let name = nameInput.value || nameInput.placeholder;
+        let authors = authorsInput.value || authorsInput.placeholder;
+        let homepage = homepageInput.value || homepageInput.placeholder;
+        let updateUrl = updateUrlInput.value || null; // optional
+        let license = licenseInput.value || licenseInput.placeholder;
+        let version = versionInput.value || versionInput.placeholder;
+        let shortDesc = shortDescInput.value || shortDescInput.placeholder;
+        let desc = descInput.value || descInput.placeholder;
+        let downloadUrl = downloadUrlInput.value || downloadUrlInput.placeholder;
+        let iconUrl = iconUrlInput.value || null; // optional
+
+        let licenseStatus = form.querySelector("#license-status");
+        if (typeof licenses !== "undefined" && licenses.length == 0) {
+            licenseStatus.textContent = "License List could not be loaded - please report this error!";
+            licenseStatus.setAttribute("class", "status warning");
+        } else if (typeof licenses !== "undefined") {
+            let spdx = licenses.find(l => l.licenseId == license);
+            if (spdx) {
+                licenseStatus.textContent = spdx.name;
+                licenseStatus.setAttribute("class", "status success");
+            }
+            else {
+                licenseStatus.textContent = "Unknown License";
+                licenseStatus.setAttribute("class", "status error");
+            }
+        }
+
+        let shortDescStatus = form.querySelector("#short-description-status");
+        let shortDescLength = shortDescInput.value.length;
+        shortDescStatus.textContent = `${shortDescLength}/200`
+        if (shortDescLength > 200) {
+            shortDescStatus.setAttribute("class", "status error");
+        }
+        else if (shortDescLength > 150) {
+            shortDescStatus.setAttribute("class", "status warning");
+        }
+        else {
+            shortDescStatus.setAttribute("class", "status");
+        }
+
+        let downloadUrlStatus = form.querySelector("#download-url-status");
+        let autoupdateDownloadUrl = null;
+        if (downloadUrl.includes(version)) {
+            downloadUrlStatus.textContent = `contains "${version}"`
+            downloadUrlStatus.setAttribute("class", "status success");
+            autoupdateDownloadUrl = downloadUrl.replace(version, "$version");
+        }
+        else {
+            downloadUrlStatus.textContent = "No version string in this URL, are you it is unique for each release?";
+            downloadUrlStatus.setAttribute("class", "status warning");
+        }
+
+        let iconUrlStatus = form.querySelector("#icon-url-status");
+        let autoupdateIconUrl = null;
+        if (iconUrl && iconUrl.includes(version)) {
+            iconUrlStatus.textContent = `contains "${version}"`
+            iconUrlStatus.setAttribute("class", "status success");
+            autoupdateIconUrl = iconUrl.replace(version, "$version");
+        }
+        else if (iconUrl) {
+            iconUrlStatus.textContent = "No version string in this URL, are you it is unique for each release?";
+            iconUrlStatus.setAttribute("class", "status warning");
+        }
+        else {
+            iconUrlStatus.textContent = "\u00a0"; // &nbsp
+        }
+
+        let output = `name: ${name}
+authors: ${authors}
+homepage: ${homepage}
+license: ${license}
+version: ${version}
+shortDescription: ${shortDesc}
+description: ${desc}
+url: ${downloadUrl}
+`;
+
+        if (iconUrl) {
+            output += `iconUrl: ${iconUrl}
+`
+        }
+
+        if (autoupdateDownloadUrl) {
+            output += `autoupdate:
+`
+            if (isTag) {
+                output += `  type: tag
+`
+            }
+            else {
+                output += `  type: commit
+`
+            }
+            if (updateUrl) {
+                output += `  updateUrl: ${updateUrl}
+`
+            }
+            output += `  url: ${autoupdateDownloadUrl}
+`
+            if (autoupdateIconUrl) {
+                output += `  iconUrl: ${autoupdateIconUrl}
+`
+            }
+        }
+
+        document.querySelector("#output").replaceChildren(document.createTextNode(output));
+
+        hljs.highlightAll();
+    }
+
+    form.addEventListener("input", event => generate());
+    generate();
+</script>
+
+</html>

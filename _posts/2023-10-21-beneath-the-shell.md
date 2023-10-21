@@ -6,19 +6,19 @@ author: Tommaso Becca
 
 The history of the Ka'het (and their older cousins, the Ka'sei) has always been rather obscure, especially regarding the earlier steps that led to their creation - often leading to misunderstandings regarding the hows and whys behind their construction. It is time to examine the way these two interesting species came to be.
 
-<img class="centered shadowed" src="/images/blog/ka-het/header.jpg" width="600" height="240" />
+<img class="centered" src="/images/blog/ka-het/header.jpg" width="840" height="350" />
 
 ## Early concepts: the "super-sizing"
 
 The story begins over two centuries before the first ka'het saw the light; not when the proposal was first conceived (the idea itself is much older, and always rejected as outlandish and unfeasible), but when it was first realized, through a tech demo that applied what is known as "super-sizing" an organism and created a three meter long, half a meter large worm, incapable of sustaining its own weight in a gravitational field or survive on its own. Though its appearance would be much different from what followed, and it had no functions beyond eating and growing, nothing would have been possible without the breakthroughs of the super-sizing project - as a matter of fact, it wasn't long after this that the Fetri'sei program began to make its first steps.
 
-<img class="centered shadowed" src="/images/blog/ka-het/super-sized.jpg" width="600" height="600" />
+<img class="centered" src="/images/blog/ka-het/super-sized.jpg" width="400" height="300" />
 
 ## The Fetri'sei, and the exploration of deep space
 
 It was around this time that, between the various departements of the interstellar authority, the Ka'sei were nearing their peak: managing over two dozen stations in the core systems (with three more in various stages of construction) and a number smaller projects on the surface, they had grown far beyond the role they were supposed the have and made many inside the government unease about the power they could exert. To start breaking the egemony that was starting to form the Ka'mar were created, intended to take some of the most promising space-based projects and develop them to completion - for instance, the then-new program of automating a large part of the interstellar traffic through new, robotic spacecrafts and surface bases. The Ka'sei's response didn't have to wait long: a competing program, which instead of automated spacecrafts put super-sized organisms at the helm and would have been capable of space travel, exploration and self replication; thus, the Fetri were born.
 
-<img class="centered shadowed" src="/images/blog/ka-het/fetri-sei-exploded.jpg" width="600" height="380" />
+<img class="centered" src="/images/blog/ka-het/fetri-sei-exploded.jpg" width="570" height="370" />
 
 With a lifetime measured in hundreds of years and an essentially infinite capability to replicate, it could achieve something only a few probes could ever do: exploring what's beyond the hyperlanes, going further than ever before at sublight speeds and report back everything that can be seen. Which it did, in some way. Nearly a century after the program's creation the first Ka'sei reached a neighbouring system, a g-type star disconnected from the hyperlane net, and was blown apart within seconds; the same happened to its three sister probes, standing a few days behind the first, in such a precise and constant way that only a sentient being could. The first result was panic; the second, however, was the clear realization of the need for a way to defend from the rest of the universe, and strike back to teach them their place, much more than simple warships could. The situation was dire, however.
 
@@ -31,19 +31,19 @@ Whereas most war fleets are are composed by a large amount different vehicles, m
 
 ### 1: The Maeri'het
 
-<img class="centered shadowed" src="/images/blog/ka-het/maeri-het-exploded.jpg" width="600" height="380" />
+<img class="centered" src="/images/blog/ka-het/maeri-het-exploded.jpg" width="570" height="370" />
 
 The smallest of the Ka'het vehicles is also the most unique. Developed as a long range scout, it has the capability of completely (but temporarily) shielding itself from all kinds of sensors, the workings of which are kept secret from everyone not directly involved with the project. Although its future use hasn't been specified, it's plausible to think they will follow the footsteps of the Fetri, travelling sublight to enemy systems outside the main cluster and destroying any foe trying to pass through - or perhaps, once the Celeatis research group succeeds in its mission, it could be the the first ship to pass through the collapsed anomaly. While away from a control ship the Maeri is mostly autonomous, deciding the best path forward without external imput; however, it can also be given orders from its supervisors, as to ensure it will not interfer where it's not supposed to.
 
 ### 2: The Telis'het
 
-<img class="centered shadowed" src="/images/blog/ka-het/telis-het-exploded.jpg" width="600" height="380" />
+<img class="centered" src="/images/blog/ka-het/telis-het-exploded.jpg" width="570" height="370" />
 
 The main warship of the Ka'het fleet, a highly capable destroyer with a firepower rivaling that of a heavy warship, but much more manuevrable. The larger size, as well as the removal of the stealth technology, allowed the designers to expand all the internal systems, from the energy sacks to the vast arrays of shield generators; whereas a Maeri is perfect for the initial phases of a war, the Telis and Vareti can follow as soon as the enemy has been scouted to bring it to a quick end.
 
 ### 3: The Vareti'het
 
-<img class="centered shadowed" src="/images/blog/ka-het/vareti-het-exploded.jpg" width="600" height="380" />
+<img class="centered" src="/images/blog/ka-het/vareti-het-exploded.jpg" width="570" height="370" />
 
 The capital ship every fleet needs, an incredible force with impenetrable shields, reactive armour and a massive electric disruptor, nullifying in a few shots even the strongest generators. Its troubled development, caused from the unprecedented size of the super-sized organism and of the shield generators placed on top of it, made it to end up with a somewhat different design from its predecessors compared to the original concept of an upsized Fetri; its capabilities have only benefited from this, however. Alone, this ship is formidable; in a fleet, it's unstoppable.
 After leaving the main Ka'het station, much like the Telis, the Vareti start listening for orders and begin patrolling the entire cluster; this way they will be ready to intervene as soon as they're called into action, without the undesiderable delay given by the hyperlane system.

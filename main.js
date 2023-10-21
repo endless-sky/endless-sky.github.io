@@ -30,5 +30,5 @@ function nextLightbox(event) {
 	openLightbox(lightboxElement.nextElementSibling);
 }
 function isImage(element) {
-	return (element != null && element.nodeName == "IMG");
+	return (element != null && element.matches("img"));
 }

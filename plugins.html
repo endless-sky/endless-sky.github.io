@@ -114,7 +114,7 @@ function init() {
 		link.href = homepage;
 		link.text = name;
 		link.classList.add('plugin-name');
-		if (version.length == 40) {
+		if (version.length === 40) {
 			version = version.substring(0, 7);
 		}
 		return [link, document.createElement('br'), `Version: ${version}`];
@@ -125,5 +125,5 @@ function init() {
 		if (typeof authors === 'string') return authors.split(',')[0];
 		return '(unknown author)';
 	}
-};
+}
 </script>

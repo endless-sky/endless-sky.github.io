@@ -42,7 +42,7 @@ function initialize() {
 	// Hardpoint buttons click handlers.
 	for (const el of document.querySelectorAll('.hardpoint-type button')) {
 		el.addEventListener('click', addPoint, { capture: false, passive: true });
-	};
+	}
 }
 
 
@@ -181,7 +181,7 @@ function setCollisionMaskData(pixels, canvasWidth) {
 				if (pixels[(pos + 3 + DIR[d]) % pixels.length])
 					break;
 				d = (d + 1) % 8;
-				if (d == firstD) {
+				if (d === firstD) {
 					isAlone = true;
 					break;
 				}
@@ -193,7 +193,7 @@ function setCollisionMaskData(pixels, canvasWidth) {
 			pos = (pos + DIR[d]) % pixels.length;
 			d = (d + 6) % 8;
 			// Loop until we are back where we started.
-		} while (pos != start);
+		} while (pos !== start);
 
 		// At least 4 points are needed to circle a transparent pixel.
 		if (directions.length < 4)
@@ -210,7 +210,7 @@ function setCollisionMaskData(pixels, canvasWidth) {
 			pixels[pos + 3] = 255;
 			pos = (pos + DIR[directions[i]]) % pixels.length;
 			++i;
-		} while (pos != start);
+		} while (pos !== start);
 	}
 }
 
@@ -263,7 +263,7 @@ function loadImage(changeEvent) {
 	reader.readAsDataURL(file);
 
 	// The scale depends on whether this is an @2x image.
-	if (file.name.lastIndexOf("@2x") == file.name.lastIndexOf(".") - 3)
+	if (file.name.lastIndexOf("@2x") === file.name.lastIndexOf(".") - 3)
 		scale = 1;
 	else
 		scale = 2;

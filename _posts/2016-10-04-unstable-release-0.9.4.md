@@ -7,6 +7,6 @@ A new release is now available on GitHub, stable version 0.9.4. This version foc
 
 Release 0.9.5 will focus on larger changes, including new Wanderer plot and a new alien faction with its own territory and ships, some of which I've already got rough-draft graphics for:
 
-<img class="centered shadowed" src="/images/coalition.jpg" width="720" height="400" />
+<img class="centered shadowed" src="/images/coalition.jpg" width="720" height="400" alt="The sprites of several alien ships">
 
 Because 0.9.5 will include a lot of new content, it'll probably be 2 months or more before that release is published.

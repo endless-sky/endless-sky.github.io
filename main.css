@@ -58,22 +58,22 @@ li p {
 /* Side elements. */
 .title {
 	position: absolute;
-	top: 0px;
-	right: 0px;
+	top: 0;
+	right: 0;
 	width: 210px;
 	height: 180px;
 }
 .nav-image {
 	position: fixed;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 	width: 200px;
 	height: 400px;
 }
 .nav-text {
 	position: fixed;
 	top: 25px;
-	left: 0px;
+	left: 0;
 	padding-left: 15px;
 	text-align: left;
 	font-size: 18px;
@@ -81,8 +81,8 @@ li p {
 }
 .doodad {
 	position: fixed;
-	bottom: 0px;
-	right: 0px;
+	bottom: 0;
+	right: 0;
 	width: 100px;
 	height: 380px;
 }
@@ -247,7 +247,6 @@ li p {
 	.main {
 		width: 100%;
 		min-width: auto;
-		max-width: auto;
 	}
 	.intro-image {
 		width: 100%;
@@ -256,6 +255,5 @@ li p {
 	#lightbox-caption-back {
 		width: 90%;
 		min-width: auto;
-		max-width: auto;
 	}
 }

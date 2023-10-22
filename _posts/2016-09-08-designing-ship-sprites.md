@@ -37,7 +37,7 @@ The final step is to export an image and post-process it. To keep things simple,
 
 Before doing any post-processing, test out different sprite sizes in the game to see what looks good and fits with the existing ships. Then, re-render the image at exactly 2 or 4 times the intended sprite size. Also make sure the @1x image will have at least a 1-pixel blank border on all sides so that the outline will render correctly.
 
-<img class="centered shadowed" src="/images/blog/summer-leaf-quadrants.jpg" width="400" height="700" alt="A Summer Leaf with divided into four quadrants, with different effects shown on each">
+<img class="centered shadowed" src="/images/blog/summer-leaf-quadrants.jpg" width="400" height="700" alt="A Summer Leaf divided into four quadrants, with different effects shown on each">
 
 The goal of the post-processing is to dirty up the sprite so it doesn't look like so obviously computer-generated. My first step is usually to overlay one or more metal textures, each using the "soft light" blending mode, and using the eraser to control what parts of the ship receive each texture. Even really grungy or rusty textures can work well here, but if the texture is too colorful you may want to reduce its saturation. As with all the design steps, the key is not to overdo the effect, but to keep it subtle.
 

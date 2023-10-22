@@ -9,7 +9,7 @@ Recently I've been playing with different ideas for making the ships look less f
 
 <img class="centered shadowed" src="/images/blog/wanderers.jpg" width="540" height="440" alt="Various Wanderer ships showing parts with different thickness">
 
-<img class="centered shadowed" src="/images/blog/sestor.jpg" width="540" height="540" alt="Kor Sestor ships with 3D-like exterior plating"/>
+<img class="centered shadowed" src="/images/blog/sestor.jpg" width="540" height="540" alt="Kor Sestor ships with 3D-like exterior plating">
 
 <img class="centered shadowed" src="/images/blog/navy.jpg" width="540" height="440" alt="Navy ships with a variety of colored panels"/>
 

@@ -7,7 +7,7 @@ Sociologists studying the Quarg and other alien civilizations have noted that th
 
 Advanced species, on the other hand, are often wildly different from each other and behave in ways that seem inscrutable or even irrational to outside observers. The currently accepted explanation for this is that all sentient species initially face the same threats to their survival: lack of food, extreme environmental conditions, attacks by other tribes or by other creatures, etc. In order to survive this stage each species will generally settle into one of a limited number of near-optimal strategies for facing those threats and satisfying what xeno-sociologists refer to as the "common hierarchy" of needs:
 
-<img class="centered" src="/images/alien-sociology.png" width="420" height="380" alt="A graph showing a breakdown of alien sociology. On the left, it shows crisis, stagnation, reorientation, the idiosyncratic hierarchy of vocation on top, and the common hierarchy of needs on the bottom.">
+<img class="centered" src="/images/alien-sociology.png" width="420" height="380">
 
 As a species becomes more technologically advanced, individuals and communities face fewer and fewer threats to their survival. Unless prevented by extreme inequality or constant interior or exterior conflict, the species reaches a point where few or none of its members ever experience deprivation of any element of the common hierarchy of needs. Surprisingly, this often leads to a period of stagnation and lack of purpose, or less frequently to sectarian conflict driven not by the need for survival but by competing ideologies.
 

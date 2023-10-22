@@ -11,6 +11,6 @@ Recently I've been playing with different ideas for making the ships look less f
 
 <img class="centered shadowed" src="/images/blog/sestor.jpg" width="540" height="540" alt="Kor Sestor ships with 3D-like exterior plating">
 
-<img class="centered shadowed" src="/images/blog/navy.jpg" width="540" height="440" alt="Navy ships with a variety of colored panels"/>
+<img class="centered shadowed" src="/images/blog/navy.jpg" width="540" height="440" alt="Navy ships with a variety of colored panels">
 
 The downside is that plugin creators will have to re-render their own ships to match, but the improvement is significant enough that I still think it's worth doing - and better now than in a year or two when there are even more ships in the game!

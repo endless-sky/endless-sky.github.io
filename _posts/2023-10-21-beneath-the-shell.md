@@ -4,7 +4,7 @@ title: Beneath the shell
 author: Tommaso Becca
 ---
 
-The history of the Ka'het (and their older cousins, the Ka'sei) has always been rather obscure, even to the engineers working on the project - often leading to misunderstandings regarding the hows and whys behind their construction. It is time to examine the way these two interesting species came to be.
+From the Watcher archives, decrypted and translated from records downloaded on Lateria'sei. The file describes a brief history of the Ka'het, as written by a Builder engineer three months before the first wave of insurrections.
 
 <img class="centered" src="/images/blog/ka-het/header.jpg" width="840" height="350" />
 

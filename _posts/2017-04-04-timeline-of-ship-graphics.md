@@ -18,6 +18,6 @@ It always encourages me to read early novels by my favorite authors and discover
 
 So if your initial attempts aren't turning out the way you envisioned, don't lose hope! And, as a bonus, I'll leave you with an example of what the first outfit graphics looked like:
 
-<img class="centered shadowed" src="/images/timeline/steering.png" width="200" height="140" />
+<img class="centered shadowed" src="/images/timeline/steering.png" width="200" height="140" alt="A sprite for a steering engine with various sideways-facing exhausts">
 
 Um... yeah. That was supposed to be a steering system.

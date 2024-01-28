@@ -11,7 +11,7 @@ Heads up that the GOG version of the game is currently in 0.10.4. We'll get the 
 https://www.gog.com/en/game/endless_sky
 
 You can give another big thanks to TomHawkins, who made this amazing trailer for the game that can now be seen on our Steam and GOG store pages!
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EhK-T9ZcD5k?si=IYK24_WzcL19K6o9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe class="centered shadowed" width="560" height="315" src="https://www.youtube.com/embed/EhK-T9ZcD5k?si=IYK24_WzcL19K6o9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 As with all major updates, there's a lot to get excited about, so here are some highlights.
 

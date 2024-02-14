@@ -306,7 +306,7 @@
             autoupdateDownloadUrl = downloadUrl.replace(version, "$version");
         }
         else {
-            downloadUrlStatus.textContent = "No version string in this URL, are you it is unique for each release?";
+            downloadUrlStatus.textContent = "No version string in this URL, are you sure it is unique for each release?";
             downloadUrlStatus.setAttribute("class", "status warning");
         }
 
@@ -318,7 +318,7 @@
             autoupdateIconUrl = iconUrl.replace(version, "$version");
         }
         else if (iconUrl) {
-            iconUrlStatus.textContent = "No version string in this URL, are you it is unique for each release?";
+            iconUrlStatus.textContent = "No version string in this URL, are you sure it is unique for each release?";
             iconUrlStatus.setAttribute("class", "status warning");
         }
         else {

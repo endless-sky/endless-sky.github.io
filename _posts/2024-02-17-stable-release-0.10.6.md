@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unstable release 0.10.5
+title: Stable release 0.10.6
 author: Amazinite
 ---
 Endless Sky v0.10.6 is now live on Github and Steam! The release will be made live on GOG in the coming days, as all GOG updates must go through a QA test from GOG.

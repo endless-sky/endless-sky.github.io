@@ -22,7 +22,7 @@ Around human space, if you keep your eyes peeled, you will find a few more plane
 
 <img class="centered shadowed" src="/images/blog/v0.10.7/uninhabited.png" width="400" height="225" />
 
-If you're itching for more missions, DoomKorath has also introduced a short mission series for the Wanderers involving an interaction with the Mereti. What for, you'll have to see for yourself! There are a few other new short mission chains coming with this update aside from this one, so a decent amount of new short story content to get involved with, with the help bene_dictator, spearsdane, Saugia, and several others.
+If you're itching for more missions, DoomKorath has also introduced a short mission series for the Wanderers involving an interaction with the Mereti. What for, you'll have to see for yourself! There are a few other new short mission chains coming with this update aside from this one, so a decent amount of new short story content to get involved with, with the help bene-dictator, spearsdane, Saugia, and several others.
 
 Now getting into the balance side of things. Replacing fighters can be a bit of a chore because they can be destroyed easily in a larger fight, especially when they get tagged with random shots. To alleviate this, in the new update, disabled fighters can no longer be hit by stray projectiles and must be targeted first, so any fighters disabled out of the way won't die as easily anymore. However, blast damages and proximity-triggered weapons will still damage them, so be sure not to destroy that heavy warship right on top of your favorite fighter!
 

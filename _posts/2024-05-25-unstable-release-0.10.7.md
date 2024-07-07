@@ -50,4 +50,4 @@ If you'd like to give feedback on anything else this update, or on the game in g
 
 The Github discussion post that comes with this release can be found [here](https://github.com/endless-sky/endless-sky/discussions/10105).
 
-And as always, a reminder to star us on Github if you haven't yet to help the game's visibility!
+And as always, a reminder to star us on [Github](https://github.com/endless-sky/endless-sky) if you haven't yet to help the game's visibility!

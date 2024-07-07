@@ -48,6 +48,6 @@ Next release will be v0.10.8 Stable, meaning it will focus on bug fixes for this
 
 If you'd like to give feedback on anything else this update, or on the game in general, here is our [feedback box](https://forms.gle/6A9kEcrFHSLw9CQw5). With all of the meaty changes above, there is plenty to talk about. Play around with the new update for a bit, then head over to the survey and give us your thoughts!
 
-The Github discussion post that comes with this release can be found here. (LINK)
+The Github discussion post that comes with this release can be found [here](https://github.com/endless-sky/endless-sky/discussions/10105).
 
 And as always, a reminder to star us on Github if you haven't yet to help the game's visibility!

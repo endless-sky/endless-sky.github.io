@@ -18,7 +18,7 @@ A neat new mechanic turrets can now be given is a "firing arc", where you can de
 
 On the content side, missions can now "mark" systems of importance without the player being required to visit them, as well as leave them marked after being visited. Not only that, but mission triggers and conversations can do various new things such as play music, give the player debt, and perform events immediately instead of having to wait at least one day. @Amazinite
 
-Around human space, if you keep your eyes peeled, you will find a few more planets and stations that weren't there last time, bringing with them a little of fluff. Some of these can be used as stopovers for content that otherwise didn't have a nearby planet to land at. Thanks to @DoomKorath and @bene_dictator for contributing these.
+Around human space, if you keep your eyes peeled, you will find a few more planets and stations that weren't there last time, bringing with them a little of fluff. Some of these can be used as stopovers for content that otherwise didn't have a nearby planet to land at. Thanks to DoomKorath and bene-dictator for contributing these.
 
 <img class="centered shadowed" src="/images/blog/v0.10.7/uninhabited.png" width="400" height="225" />
 

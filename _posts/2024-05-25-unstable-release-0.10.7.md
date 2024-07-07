@@ -46,7 +46,7 @@ If you're using the High DPI plugin, you should also update that to the [current
 
 Next release will be v0.10.8 Stable, meaning it will focus on bug fixes for this release, and have a shorter cycle ending somewhere around the end of June. This won't require you to opt into the beta branch once available.
 
-If you'd like to give feedback on anything else this update, or on the game in general, here is our feedback box. https://forms.gle/6A9kEcrFHSLw9CQw5 With all of the meaty changes above, there is plenty to talk about. Play around with the new update for a bit, then head over to the survey and give us your thoughts!
+If you'd like to give feedback on anything else this update, or on the game in general, here is our [feedback box](https://forms.gle/6A9kEcrFHSLw9CQw5). With all of the meaty changes above, there is plenty to talk about. Play around with the new update for a bit, then head over to the survey and give us your thoughts!
 
 The Github discussion post that comes with this release can be found here. (LINK)
 

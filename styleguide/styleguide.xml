@@ -784,20 +784,20 @@ Fibonacci(int x)
 </STYLEPOINT>
 
 <STYLEPOINT title="Single-line loop bodies">
-<SUMMARY>You do not need to use braces if a loop or conditional body is a single expression.</SUMMARY>
+<SUMMARY>You should not use braces if a loop or conditional body is a single expression.</SUMMARY>
 <BODY>
 <p>That is:</p>
 <CODE_SNIPPET>
 if(theThing != done)
     DoTheThing();
 </CODE_SNIPPET>
-<p>You can also forgo the braces for something like this:</p>
+<p>You should also forgo the braces for something like this:</p>
 <CODE_SNIPPET>
 for(int i = 0; i &lt; 10; ++i)
     if(vec[i])
         sum += i;
 </CODE_SNIPPET>
-<p>And, you can also do this:</p>
+<p>And, you should also do this:</p>
 <CODE_SNIPPET>
 for(int i = 0; i &lt; 10; ++i)
     if(vec[i])

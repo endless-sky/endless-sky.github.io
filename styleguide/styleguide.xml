@@ -65,9 +65,9 @@ file contents are completely different, so please do not confuse the two. -->
 </STYLEPOINT>
 
 <STYLEPOINT title="Header file guards">
-<SUMMARY>All header files should have #define guards, and they should be in the format "#ifndef MY_CLASS_H_".</SUMMARY>
+<SUMMARY>All header files should have #pragma once guards.</SUMMARY>
 <BODY>
-<p>The C++ standard technically does not allow source code files to define macros that start with an underscore or contain a double underscore.</p>
+<p>The C++ standard technically does not allow #pragma once, but all major compilers support it. It is also much easier to use than regular header guards.</p>
 </BODY>
 </STYLEPOINT>
 

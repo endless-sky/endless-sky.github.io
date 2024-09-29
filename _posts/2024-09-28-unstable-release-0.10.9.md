@@ -37,7 +37,7 @@ With GOG, go to your library, right click Endless Sky, go to Manage Installation
 
 Later in October, you can expect the next release, v0.10.10 Stable. This will be focused mainly on bugfixes for this unstable release. You won't have to opt into the beta branch once it is available.
 
-And as always, if you would like to give us feedback on anything else in this update, or on the game in general, here is a link to our feedback box! Dig into the update for a bit and let us know your thoughts!
+And as always, if you would like to give us feedback on anything else in this update, or on the game in general, here is a link to our [feedback box](https://docs.google.com/forms/d/e/1FAIpQLSdl_fVDlVdGpvXgZ4ya7YmGK1FQx9fJ-9L25Xmm2_dG8wpUcQ/viewform?usp=sf_link)! Dig into the update for a bit and let us know your thoughts!
 
 Remember to star us on Github if you haven't yet! The easier people can find the game, the more will come and enjoy it with the rest of us!
 

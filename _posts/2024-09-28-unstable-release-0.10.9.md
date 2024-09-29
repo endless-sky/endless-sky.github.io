@@ -16,7 +16,7 @@ Have you ever wanted your escorts to fly with you more uniformly? To enter a sys
 
 And if that isn't enough for you fleet-wise, we now have the long-requested Hold Fire command, which you can find in the Controls tab of the game's settings if you wish to change it to a different key. And once again, thanks to Hurleveur.
 
-For the more meaty part of this update, we have not one, but once again, TWO new species that have appeared in the Endless Sky galaxy, each with their own territory to explore and a few interactions to be had. Be on the lookout for the Incipias authored by @risingleaf, and the Successors from @Daerii! That's all I would like to say about them, however, if you want to peek over back to Gegno space, you might find a few new missions there too.
+For the more meaty part of this update, we have not one, but once again, TWO new species that have appeared in the Endless Sky galaxy, each with their own territory to explore and a few interactions to be had. Be on the lookout for the Incipias authored by RisingLeaf, and the Successors from Daeridanii1! That's all I would like to say about them, however, if you want to peek over back to Gegno space, you might find a few new missions there too.
 
 <img class="left shadowed" src="/images/blog/v0.10.9/incipias.png" width="450" height="225" />
 

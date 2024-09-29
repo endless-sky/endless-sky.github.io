@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unstable release 0.10.8
+title: Stable release 0.10.8
 author: Amazinite
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stable release 0.10.9
+title: Unstable release 0.10.9
 author: Saugia
 ---
 
@@ -8,9 +8,9 @@ If you like more Endless Sky, boy do I have the thing for you! v0.10.9 is now li
 
 Here are some highlights coming with this release:
 
-When it comes to boarding and capturing, there never really has been a reason to incorporate defense as the game always calculates using the attack values of the AI versus your crew. With this update, if both sides choose to attack, two rounds of combat are run - one with the player's attack against the enemy's defense, and one with the enemy's attack against the player's defense, instead of using the player's attack against the enemy's attack. Now those thousands of Pug Biodefenses you farmed can be useful against any trigger-happy Pirate! Thanks to the efforts of Peter and Hurleveur. But that's not all that these two have for us!
+When it comes to boarding and capturing, there never really has been a reason to incorporate defense, as the game always calculates using the attack values of the AI versus your crew. With this update, if both sides choose to attack, two rounds of combat are run - one with the player's attack against the enemy's defense, and one with the enemy's attack against the player's defense, instead of using the player's attack against the enemy's attack. Now those thousands of Pug Biodefenses you farmed can be useful against any trigger-happy pirate, thanks to the efforts of Peter and Hurleveur. But that's not all that these two have for us!
 
-Have you ever wanted your escorts to fly with you more uniformly? To enter a system in style, or to enter one with a mroe strategic lineup? Well, now you can, with the addition of Fleet Formations! Using Shift + your "fleet gather" key (G by default), you can now cycle through several fleet formations, such as circles, lines, daggers, and several other shapes! Once again thanks to Peter.
+Have you ever wanted your escorts to fly with you more uniformly? To enter a system in style, or to enter one with a more strategic lineup? Well, now you can, with the addition of Fleet Formations! Using Shift + your "fleet gather" key (G by default), you can now cycle through several fleet formations, such as circles, lines, daggers, and several other shapes! Once again thanks to Peter.
 
 <img class="centered shadowed" src="/images/blog/v0.10.9/formation.png" width="450" height="498" />
 
@@ -25,7 +25,7 @@ For the more meaty part of this update, we have not one, but once again, TWO new
 A few honorable mentions to wrap things up:
 
 The Emerald Sword's Dragonflame Cannon now pierces through its target. Huzzah! From Zoura.
-Wanderer worlds now have defense fleets, meaning they can now conquered by you maniacs. From TheGiraffe3.
+Wanderer worlds now have defense fleets, meaning they can now be conquered by you maniacs. From TheGiraffe3.
 Governments no longer assist player escorts if the player doesn't know their language. "What did he say??" From TomGoodIdea.
 Assisting/boarding ships are now able to recharge batteries. Nice! From tibetiroka.
 

@@ -26,7 +26,7 @@ A few honorable mentions to wrap things up:
 
 The Emerald Sword's Dragonflame Cannon now pierces through its target. Huzzah! From Zoura.
 Wanderer worlds now have defense fleets, meaning they can now be conquered by you maniacs. From TheGiraffe3.
-Governments no longer assist player escorts if the player doesn't know their language. "What did he say??" From TomGoodIdea.
+Governments no longer assist player escorts if the player doesn't know their language. "What did he say?" From TomGoodIdea.
 Assisting/boarding ships are now able to recharge batteries. Nice! From tibetiroka.
 
 Friendly reminder that in order to play unstable updates over on Steam or GoG, you have to opt into the beta branch.

@@ -12,4 +12,4 @@ We always like to hear your feedback, if it's about the current update or the ga
 
 Our next unstable release, v0.10.11, will be later in January. See you then!
 
-<img class="centered shadowed" src="/images/blog/v0.10.10.png" width="800" height="450" />
+<img class="centered shadowed" src="/images/blog/v0.10.10.png" width="400" height="225" />

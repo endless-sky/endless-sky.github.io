@@ -14,7 +14,7 @@ We often have players making note that various sound effects can be at odds comp
 
 This isn't all tibetiroka has for us regarding audio. Sounds are now paused on pop-ups of UI panels, such as dialog, missions, opening the map, and so on, instead of continuing to play in the background. You'll also find that if you fast-forward, most sounds will also now fast-forward, with the exceptions being longer/looping sounds such as engines or beam weapons. These changes help the game's audio feel a bit less chaotic overall.
  
-Continuing on with UI changes, we have a bright new addition to the map interface. Thanks to Azure, you will find a new "Stars" tab in the map panel. Upon clicking this, in the place of system rings, small graphics of each system's stars will appear! For systems you haven't yet discovered, there will be a default star icon. A neat new way to look at the map, that we may revisit again in the future. 
+Continuing on with UI changes, we have a bright new addition to the map interface. Thanks to Azure3141, you will find a new "Stars" tab in the map panel. Upon clicking this, in the place of system rings, small graphics of each system's stars will appear! For systems you haven't yet discovered, there will be a default star icon. A neat new way to look at the map, that we may revisit again in the future. 
 
 <img class="centered shadowed" src="/images/blog/v0.10.11/stars.png" width="500" height="300" />
 
@@ -27,7 +27,7 @@ The biggest balance change coming in this update is one that has been talked abo
 
 <img class="centered shadowed" src="/images/blog/v0.10.11/carrier.png" width="490" height="350" />
 
-These changes help shift the Carrier away from the big, heavy brawler role it currently plays alongside the Cruiser, and into a supportive ranged approach, relying on its fighters and drones to do a majority of its damage. This also helps with fighting against them - in things like the Free Worlds battles, the Carrier itself is now less of a direct combatant. Any Carriers prior to this update will still retain the original build. More importantly, we've elected to leave the Giftbringer alone as increasing its fighter count would spike the difficulty of that fight by a lot with its Sestor drones. It has been dubbed a "Modified Carrier", using the original hardpoint setup, and got a slightly adjusted sprite for it thanks to Gefullte Taubenbrust.
+These changes help shift the Carrier away from the big, heavy brawler role it currently plays alongside the Cruiser, and into a supportive ranged approach, relying on its fighters and drones to do a majority of its damage. This also helps with fighting against them - in things like the Free Worlds battles, the Carrier itself is now less of a direct combatant. Any Carriers prior to this update will still retain the original build. More importantly, we've elected to leave the Giftbringer alone as increasing its fighter count would spike the difficulty of that fight by a lot with its Sestor drones. It has been dubbed a "Modified Carrier", using the original hardpoint setup, and got a slightly adjusted sprite for it thanks to Gefüllte Taubenbrust.
 
 But wait, there's more! While looking at human carriers, we gave the Aerie the love it finally deserved, and it now has four fighter bays instead of two. It is an overall buff, and it helps make the Aerie be more competitive against other ships of its class. Thanks to Quantumshark again for helping me extensively test and balance all of these carrier changes. 
 

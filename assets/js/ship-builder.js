@@ -111,12 +111,12 @@ function drawImage() {
 	const pixels = imageData.data;
 	let swizzlePixels = null;
 	if(swizzleMask) {
-		var swizzleCanvas = document.createElement('canvas');
-		var swizzleContext = swizzleCanvas.getContext("2d");
+		const swizzleCanvas = document.createElement('canvas');
+		const swizzleContext = swizzleCanvas.getContext("2d");
 		swizzleCanvas.width = canvas.width;
 		swizzleCanvas.height = canvas.height;
 		swizzleContext.drawImage(swizzleMask, 0, 0, canvas.width, canvas.height);
-		var swizzleData = swizzleContext.getImageData(0, 0, canvas.width, canvas.height);
+		const swizzleData = swizzleContext.getImageData(0, 0, canvas.width, canvas.height);
 		swizzlePixels = swizzleData.data;
 	}
 	for (let i = 0; i < pixels.length; i += 4) {

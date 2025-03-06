@@ -6,6 +6,7 @@ document.onreadystatechange = () => {
 
 // Globals.
 let image = null;
+let swizzleMask = null;
 // Keep track of whether the mouse button is down.
 let isDragging = false;
 // Coordinates of the most recent mouse click or drag in the canvas.
@@ -108,11 +109,24 @@ function drawImage() {
 	][swizzle];
 	const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 	const pixels = imageData.data;
+	let swizzlePixels = null;
+	if(swizzleMask) {
+		const swizzleCanvas = document.createElement('canvas');
+		const swizzleContext = swizzleCanvas.getContext("2d");
+		swizzleCanvas.width = canvas.width;
+		swizzleCanvas.height = canvas.height;
+		swizzleContext.drawImage(swizzleMask, 0, 0, canvas.width, canvas.height);
+		const swizzleData = swizzleContext.getImageData(0, 0, canvas.width, canvas.height);
+		swizzlePixels = swizzleData.data;
+	}
 	for (let i = 0; i < pixels.length; i += 4) {
 		// Get each new channel value from the relevant channel.
-		const red = pixels[i + SWIZZLE.red];
-		const green = pixels[i + SWIZZLE.green];
-		const blue = pixels[i + SWIZZLE.blue];
+		let factor = 0;
+		if(swizzlePixels != null)
+			factor = ((swizzlePixels[i] + swizzlePixels[i + 1] + swizzlePixels[i + 2]) / 765);
+		const red = (factor * pixels[i]) + ((1 - factor) * pixels[i + SWIZZLE.red]);
+		const green = (factor * pixels[i + 1]) + ((1 - factor) * pixels[i + SWIZZLE.green]);
+		const blue = (factor * pixels[i + 2]) + ((1 - factor) * pixels[i + SWIZZLE.blue]);
 		pixels[i + 0] = red;
 		pixels[i + 1] = green;
 		pixels[i + 2] = blue;
@@ -259,7 +273,12 @@ function loadImage(changeEvent) {
 
 	// Begin loading the file.
 	const reader = new FileReader();
-	reader.onload = createImage;
+	if(file.name.lastIndexOf("@sw") === file.name.lastIndexOf(".") - 3)
+		reader.onload = createSwizzleMask;
+	else if(file.name.lastIndexOf("@sw") === file.name.lastIndexOf("@2x") - 3 === file.name.lastIndexOf(".") - 6)
+		reader.onload = createSwizzleMask;
+	else
+		reader.onload = createImage;
 	reader.readAsDataURL(file);
 
 	// The scale depends on whether this is an @2x image.
@@ -276,8 +295,16 @@ function createImage(fileLoadEvent) {
 	image.src = fileLoadEvent.target.result;
 }
 
+function createSwizzleMask(fileLoadEvent) {
+	swizzleMask = new Image();
+	swizzleMask.onload = imageLoaded;
+	swizzleMask.src = fileLoadEvent.target.result;
+}
+
 // An image has been created. Draw it.
 function imageLoaded() {
+	if(image == null)
+		return;
 	if (Math.max(image.width, image.height) > 30000 || (image.width * image.height > 268000000)) {
 		// TODO: Dynamic scaling would resolve this, but would also mean we need to handle
 		// conversion from the data URL to pixel array ourselves.

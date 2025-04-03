@@ -8,7 +8,7 @@ Well hello again! Our next stable release, v0.10.12, is here! ~~It's actually be
 
 Don't forget that for each major release, we have a feedback box, so you can comment on the larger additions and changes in the game, or in general. The one for 0.10.11 can be found [here](https://docs.google.com/forms/d/e/1FAIpQLSdyuyskMNz8lHO3OQCfAnBHNzM7YFJgZDsqd64aefqtmGGmuw/viewform). You can also use the [v0.10.12 discussion post on GitHub](https://github.com/endless-sky/endless-sky/discussions/11072).
 
-Head on over and give Endless Sky a star on our Github if you haven't yet! If you'd like, you can also submit reviews on either Steam or GOG. Doing any of these helps the game become more discoverable for others!
+Head on over and give Endless Sky a star on our GitHub if you haven't yet! If you'd like, you can also submit reviews on either Steam or GOG. Doing any of these helps the game become more discoverable for others!
 
 Our next major unstable release, v0.10.13, is planned to be released late May.
 

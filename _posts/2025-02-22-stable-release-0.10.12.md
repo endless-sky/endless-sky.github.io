@@ -10,6 +10,6 @@ Don't forget that for each major release, we have a feedback box, so you can com
 
 Head on over and give Endless Sky a star on our GitHub if you haven't yet! If you'd like, you can also submit reviews on either Steam or GOG. Doing any of these helps the game become more discoverable for others!
 
-Our next major unstable release, v0.10.13, is planned to be released late May.
+Our next major unstable release, v0.10.13, is planned for the end of May.
 
 <img class="centered shadowed" src="/images/blog/v0.10.12.png" width="400" height="225" />

@@ -8,7 +8,7 @@ Hello everybody,
 
 Today marks a monumental milestone: ten years ago the very first public release of Endless Sky—[version 0.7.9](https://github.com/endless-sky/endless-sky/releases/tag/v0.7.9)—launched on GitHub.
 
-<img class="centered shadowed" src="images/blog/anniversary/original.png" width="600" height="400" />
+<img class="centered shadowed" src="/images/blog/anniversary/original.png" width="600" height="400" />
 
 
 With that anniversary upon us, we’d like to take a moment to reflect on what our passionate, talented and ever-growing community of players, contributors, and volunteers have accomplished over the past decade.

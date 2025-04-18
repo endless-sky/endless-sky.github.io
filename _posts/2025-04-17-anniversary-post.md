@@ -36,3 +36,5 @@ To everyone who's played, provided feedback, and the over 348 people who have co
 Here’s to the next ten years of adventure. We’re excited to keep exploring, expanding and pushing the boundaries of what an open-source game can be
 
 If you would like to be a part of this adventure, come join our growing community on [GitHub](https://github.com/endless-sky/endless-sky), [Discord](https://discord.gg/ZeuASSx) or [Reddit](https://reddit.com/r/endlesssky). We’d love to have you aboard.
+
+<img class="centered shadowed" src="/images/blog/anniversary/remake.png" width="600" height="400" />

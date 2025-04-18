@@ -4,9 +4,7 @@ title: Celebrating ten years of Endless Sky
 author: Hecter
 ---
 
-Hello everybody,
-
-Today marks a monumental milestone: ten years ago the very first public release of Endless Sky—[version 0.7.9](https://github.com/endless-sky/endless-sky/releases/tag/v0.7.9)—launched on GitHub.
+Hello everybody. Today marks a monumental milestone: ten years ago the very first public release of Endless Sky—[version 0.7.9](https://github.com/endless-sky/endless-sky/releases/tag/v0.7.9)—launched on GitHub.
 
 <img class="centered shadowed" src="/images/blog/anniversary/original.png" width="600" height="400" />
 

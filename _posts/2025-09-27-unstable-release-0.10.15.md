@@ -18,7 +18,7 @@ Although there is no one large content addition this update, you will find sever
 
 On the side, while several Wanderer ships are waiting for their debut in future Wanderer story, the Heavy Gust, will now appear after the Autumn Leaf is available. Similar to the comparison between the Summer Leaf and the Autumn Leaf, the Heavy Gust is a more militarized counterpart of the Strong Wind, and will be purchasable once you obtain the Wanderer's Military License. You can think of it as a lighter, faster alternative to the Tempest from DoomKorath and Saugia.
 
-<img class="centered shadowed" src="/images/blog/v0.10.15.png" width="400" height="225" />
+<img class="centered shadowed" src="/images/blog/v0.10.15.png" width="800" height="450" />
 
 Some other various takeaways include:
 

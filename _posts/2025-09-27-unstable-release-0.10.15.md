@@ -16,7 +16,7 @@ We still haven't forgotten about one of everyone's favorite features! After havi
 
 Although there is no one large content addition this update, you will find several new and continued missions/mission chains. These range from hovercraft racing bets, a racer going on a ride of their own, more investment with the Syndicate, the will of a late captain, and whispers lurking over in The Graveyard. I'll let you go out and explore their contents rather than explain them here. Shout-outs to all those involved: TheGiraffe3, RisingLeaf, bene-dictator, Daeridanii1, reticent-rem, and beccabunny! 
 
-On the side, while several Wanderer ships are waiting for their debut in future Wanderer story, the Heavy Gust, will now appear after the Autumn Leaf is available. Similar to the comparison between the Summer Leaf and the Autumn Leaf, the Heavy Gust is a more militarized counterpart of the Strong Wind, and will be purchasable once you obtain the Wanderer's Military License. You can think of it as a lighter, faster alternative to the Tempest from DoomKorath and Saugia.
+On the side, while several Wanderer ships are waiting for their debut in future Wanderer story, the Heavy Gust will now appear shortly after the Autumn Leaf is available. Similar to the comparison between the Summer Leaf and the Autumn Leaf, the Heavy Gust is a more militarized counterpart of the Strong Wind, and will be purchasable once you obtain the Wanderer Military License. You can think of it as a lighter, faster alternative to the Tempest from Quantumshark and Saugia.
 
 <img class="centered shadowed" src="/images/blog/v0.10.15.png" width="800" height="450" />
 

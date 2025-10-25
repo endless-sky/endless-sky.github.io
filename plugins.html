@@ -101,7 +101,7 @@ function init() {
 		return [img];
 	}
 	function createLicense(spdx = '') {
-		if (!spdx) {
+		if (!spdx || spdx === 'ALL-RIGHTS-RESERVED') {
 			return ['All Rights Reserved by author(s)'];
 		}
 		const link = document.createElement('a');

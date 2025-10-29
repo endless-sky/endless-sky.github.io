@@ -101,8 +101,8 @@ function init() {
 		return [img];
 	}
 	function createLicense(spdx = '') {
-		if (!spdx) {
-			return ['All Rights Reserved by author(s)'];
+		if (!spdx || spdx === 'ALL-RIGHTS-RESERVED') {
+			return ['All Rights Reserved'];
 		}
 		const link = document.createElement('a');
 		link.href = `https://spdx.org/licenses/${spdx}.html`;

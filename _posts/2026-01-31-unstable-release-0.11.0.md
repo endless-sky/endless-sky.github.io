@@ -28,6 +28,10 @@ While we're still talking about human space, @bene-dictator has implemented "mes
 
 <img class="centered shadowed" src="/images/blog/v0.11.0/buoy.jfif" width="800" height="200" />
 
+A new short, standalone story has been added to the Graveyard, investigating more about the Ka'het and their behaviors, thanks to @becca! Look forward for more things to come in the Graveyard and Patir saga in the near future!
+
+If you're a lore fanatic, there are now a few new hidden culture conversations around the galaxy. Should you come across one, you may gain a little insight into some of the galaxy's alien races and historical events. @Arachi-Lover 
+
 Under the hood, several improvements to overall performance have been made and should noticeably reduce gameplay lag. Pathfinding and casual flight should feel a lot smoother, and VRAM usage should be much lower using High DPI graphics. Thanks to the efforts of @xobes, @Amazinite , and @warp-core!
 Finally, for those of you wondering about Hai Reveal: We've made the decision to remove the Hai Reveal storyline from the game. Only about a dozen of the missions were ever available, and they conflicted with the plotline of other storylines. No progress has been made on it in several years, so we've opted to remove it and related content for the time being, giving us a blank slate for when we eventually do return to and properly continue it.
 As mentioned above, this will be a double unstable release period. In order to play unstable releases on Steam and GOG, you need to opt into their respective beta branches.

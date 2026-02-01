@@ -16,7 +16,7 @@ Wondering what all I meant by "quality of life" UI changes? Well, one of our new
 
 <img class="centered shadowed" src="/images/blog/v0.11.0/planet-panel.jfif" width="800" height="450" />
 
-Another long-standing request is to have more starts available to the game, which Anarchist has provided us! In addition to the default one currently in the game, there are now three more human starts for a little more variance - start richer, start with less, or start with something a bit different than what we have now. Which you choose is up to you!
+Another long-standing request is to have more starts available to the game, which with Anarchist has provided us! In addition to the default one currently in the game, there are now three more human starts for a little more variance - start richer, start with less, or start with something a bit different than what we have now. Which you choose is up to you!
 
 <img class="centered shadowed" src="/images/blog/v0.11.0/starts.jfif" width="1058" height="636" />
 
@@ -38,9 +38,9 @@ As mentioned above, this will be a double unstable release period. In order to p
 - For [Steam](https://store.steampowered.com/app/404410/Endless_Sky/), go to your library, right click Endless Sky, go to Properties, go to Betas, select the beta in the drop down box, and that's it!
 - For [GOG](https://www.gog.com/en/game/endless_sky), go to your library, right click Endless Sky, go to Manage Installation -> Configure, and select the beta in the Beta Channels drop down box.
 
-With all releases comes the [Github discussion](https://github.com/endless-sky/endless-sky/discussions/12204) post and a [Release feedback box](https://docs.google.com/forms/d/e/1FAIpQLScl3EVWbqL3puI3poCQD7tVMCNBun76vlSyCTe9UoxW8eqM2A/viewform?usp=dialog)! This time around, there are a few questions beyond what pertains to the update - mainly, we'd like to get an idea of sequencing after the Free Worlds campaign.
+With all releases comes the [GitHub discussion](https://github.com/endless-sky/endless-sky/discussions/12204) post and a [Release feedback box](https://docs.google.com/forms/d/e/1FAIpQLScl3EVWbqL3puI3poCQD7tVMCNBun76vlSyCTe9UoxW8eqM2A/viewform?usp=dialog)! This time around, there are a few questions beyond what pertains to the update - mainly, we'd like to get an idea of sequencing after the Free Worlds campaign.
 
 The next release, v0.11.1, will also be an unstable update, and is planned for the end of April.
 The next stable release, v0.11.2, will be a longer stable period focused on bugfixes for the prior double unstable releases.
 
-Give us a star on the [Github repository](https://github.com/endless-sky/endless-sky) if you haven't yet, so that new players and contributors alike can find the game easier! Until next time!
+Give us a star on the [GitHub repository](https://github.com/endless-sky/endless-sky) if you haven't yet, so that new players and contributors alike can find the game easier! Until next time!

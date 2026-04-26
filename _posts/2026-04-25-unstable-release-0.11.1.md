@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unstable release 0.11.0
+title: Unstable release 0.11.1
 author: Saugia
 ---
 

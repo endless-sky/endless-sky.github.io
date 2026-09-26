@@ -49,4 +49,8 @@ Friendly reminder that in order to play unstable updates on Steam or GOG, you wi
 - On Steam, go to your library, right click Endless Sky, go to Properties, go to Betas, and select the beta in the drop down box. (You don't need any sort of beta code, just select beta in the drop down box and close the menu.)
 - On GOG, go to your library, right click Endless Sky, go to Manage Installation -> Configure, and select the beta in the Beta Channels drop down box.
 
+MacOS users who want to install the game via Homebrew can find our Tap at `endless-sky/tap`. We have both stable and unstable releases and the high DPI plugin. Check the [readme](https://github.com/endless-sky/homebrew-tap/blob/master/README.md) for more details.
+
+We're also on Flathub, both stable and unstable branches, if you want to install the game as a flatpak on Linux.
+
 The next release, v0.11.4, will be a stable release that focuses on bug fixes, and is scheduled for October 31st. You will not need to opt into the beta branch on Steam or GOG when it is made available.

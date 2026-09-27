@@ -43,7 +43,7 @@ And some other honorable mentions:
 And a ton of other cool stuff, but if I were to list everything, I'd just be copying the changelog here, so go read the whole thing if you want to know about all the cool new changes!
 
 Remember to star the game on Github or leave a positive review on Steam or GoG if you haven't already. And as usual, here is our feedback box for this release:
-https://forms.gle/gPERzubizkhyeq6w8
+https://forms.gle/LXDnqXqacBC4cfoU9
 
 Friendly reminder that in order to play unstable updates on Steam or GOG, you will need to opt into the beta branch.
 - On Steam, go to your library, right click Endless Sky, go to Properties, go to Betas, and select the beta in the drop down box. (You don't need any sort of beta code, just select beta in the drop down box and close the menu.)

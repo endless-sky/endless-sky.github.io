@@ -15,6 +15,8 @@ For players that ran into issues with missions in 0.11.3:
 
 A reminder that we have a feedback box for each major release; here is the one for [v0.11.3](https://forms.gle/LXDnqXqacBC4cfoU9). If you haven't looked at it already, it would help to check it out and leave us any feedback.
 
+We also have a [discussion on Github](https://github.com/endless-sky/endless-sky/discussions/1212853) where you can chat about this release.
+
 Also, if you haven't already, head over to [Github](https://github.com/endless-sky/endless-sky) and star Endless Sky or give us a positive review on [Steam](https://store.steampowered.com/app/404410/Endless_Sky/) or [GOG](https://www.gog.com/en/game/endless_sky) to help the game become more discoverable!
 
 Our next unstable release, v0.11.5, is planned for late January of 2027. See you in the new year!

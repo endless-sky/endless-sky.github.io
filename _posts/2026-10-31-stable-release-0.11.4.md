@@ -4,7 +4,7 @@ title: Stable release 0.11.4
 author: Amazinite
 ---
 
-v0.11.4 is now live on Github, Steam, and GoG! And shortly on Flathub and our Homebrew tap.
+v0.11.4 is now live on Github, Steam, and GoG, and shortly on Flathub and our Homebrew tap!
 
 This release is being sent out to everyone, so you don't need to be on the beta branch to get it. This update focuses on bug fixes for the recent v0.11.3 release, so if you haven't played that version, then take a look at our previous announcement, or check the [changelog](https://github.com/endless-sky/endless-sky/blob/master/changelog) to see what's new.
 
